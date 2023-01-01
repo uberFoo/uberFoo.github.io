@@ -28,8 +28,8 @@ twitter_username: "@uberFoo"
 github_username:  uberFoo
 
 # Build settings
-theme: minima
 remote_theme: pages-themes/hacker@v0.2.0
+# remote_theme: luxedo/jekyll-theme-potato-hacker
 plugins:
   - jekyll-feed
   - jekyll-remote-theme

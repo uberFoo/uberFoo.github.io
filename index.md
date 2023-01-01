@@ -4,3 +4,6 @@
 
 layout: default
 ---
+
+This is where I store my thoughts on programming in general. When possible I use Rust
+for my projects, so this is very Rust-centric.
