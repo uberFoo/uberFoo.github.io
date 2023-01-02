@@ -113,9 +113,14 @@ There are details missing from the abstraction in the `Drawing` domain.
 We do have a new relationship between the arrow head and a particular side of a box.
 That's great, but what about it's position on that line that comprises a side?
 That's not captured in the model.
-I can (and will probably) add a relationship between `Anchor` and `Point` so that it at least has global coordinates.
+I can (and will probably) add a relationship (back) between `Anchor` and `Point` so that it at least has global coordinates.
 And honestly, that's really good enough.
-It's enough information that I can have the relationship re-render itself when prompted by `ObjectUI`.
+(I just noticed `R4` on the model.
+That was an attempt to capture the edge-local coordinates.
+It fails, in my mind, because we really only need one coordinate, not two.)
+
+We don't necessarily need to capture the side-local coordinates of the `Anchor`.
+With just the new relationship (`R14`) I can at least have the relationship re-render itself (in global coordinates) when prompted by `ObjectUI`.
 Or the `ObjectUI` code could just reach into `RelationshipUI` and do it that way.
 Not a pretty solution, but you could do it.
 
