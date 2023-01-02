@@ -5,8 +5,6 @@ author: Keith Star
 tags: sarzak, cuckoo, nut, nutter, codegen, rust, modeling
 ---
 
-## Sarzak
-
 I'm building a tool for myself. I call it _Sarzak_, after a dog. The dog was owned by the people
 I worked for at a company called Project Technology, another lifetime ago. Sarzak is a suite of
 tools that allow for generating code from models. I started working on this ages ago, and never

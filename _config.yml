@@ -27,6 +27,8 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: "@uberFoo"
 github_username:  uberFoo
 
+excerpt_separator: <!--less-->
+
 # Build settings
 remote_theme: pages-themes/hacker@v0.2.0
 # remote_theme: luxedo/jekyll-theme-potato-hacker
