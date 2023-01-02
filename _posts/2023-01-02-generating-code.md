@@ -36,7 +36,7 @@ The model domain is called `Drawing`.
 This domain captures the location and size information of the boxen and lines in Cuckoo.
 `Drawing` looks thusly,
 
-![Drawing Domain](/assets/images/drawing.png)
+![Drawing Domain](/assets/images/drawing_reasonable.png)
 
 Here's a [larger version](/assets/images/drawing_reasonable.png) of the domain.
 
