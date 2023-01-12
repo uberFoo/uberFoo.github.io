@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"attr":[["embed_doc_image","Produces a doc string for inclusion in Markdown documentation."]],"macro":[["embed_image","Produces a doc string for inclusion in Markdown documentation."]]};

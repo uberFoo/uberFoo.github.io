@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["UUID_NS",""]],"mod":[["macros","Macros for navigating the “Singleton” domain"],["store","ObjectStore for the instances of the “Singleton” domain"],["types","Types for instances of the “Singleton” domain"]]};
