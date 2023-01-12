@@ -2,7 +2,7 @@
 layout: post
 title: 'Generated Code for my Test Domain'
 author: Keith Star
-tags:
+tags: codegen, modeling
 ---
 
 I have been deep in code generation.
