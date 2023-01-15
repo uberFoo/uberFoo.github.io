@@ -28,9 +28,10 @@ Nut turns models, stored as JSON, into Rust code.
 
 We manage this by ascribing consistent semantic meaning to the model components, and how those components are assembled.
 The meaning comes from [Sally & Stephen](https://en.wikipedia.org/wiki/Shlaer–Mellor_method), and whatever changes I've made in the interim.
+
 Rather than getting into any specifics, suffice to say that if you build a model correctly you will get correct code.
 If you don't build it correctly, as it stands now, the compiler will do weird things.
-In the future, I think I can build a tool that tells you when you've made a modeling mistake.
+In the future, I think I can build a tool that tells you when you've made a modeling mistake.🤔
 
 ## Domain Generation
 
@@ -167,8 +168,10 @@ I guess I'll have to give that another dog name...
 
 [^extrude]:
     Extrusion is what I call it when I'm changing the underlying data structure, brining along instances.
+
     I needed to do this because the original, hand written, model had errors.
     Neither was it ideally suited to code generation.
+
     There will be more extrusion as I expand upon the OOA^2.
     Mostly it's implementing the [`From`](https://doc.rust-lang.org/1.66.1/core/convert/trait.From.html) trait, as well as a trait I have called `Extrude`:
 
