@@ -152,17 +152,31 @@ Using the sarzak generated code would be a good starting place for any of these.
 ## In Closing
 
 Sarzak can generate itself (once I've finished the model...).
-I'm super happy about this.
+I'm super happy about this. 😃
+
+I'm really looking forward to working on the new code generator.
+I'm calling in grace, in order to keep the dog name tradition.
+It's going to be based off of the new sarzak crate.
+
+I'll be driving development by generating the next version of the tool.
+Thus, the target of grace will be a general rust runtime.
+Having said that, it's hard to imagine I won't rebuilt nut using sarzak.
+I guess I'll have to give that another dog name...
+
+## Footnotes
 
 [^extrude]:
     Extrusion is what I call it when I'm changing the underlying data structure, brining along instances.
-    Mostly it's implementing the `From` trait, as well as a trait I have called `Extrude`.
-    `Extrude` is like `From`, but you pass along some context to access other data in the model.
-
     I needed to do this because the original, hand written, model had errors.
     Neither was it ideally suited to code generation.
-
     There will be more extrusion as I expand upon the OOA^2.
+    Mostly it's implementing the [`From`](https://doc.rust-lang.org/1.66.1/core/convert/trait.From.html) trait, as well as a trait I have called `Extrude`:
+
+    ```rust
+    pub trait Extrude<T, C> {
+        fn extrude(input: T, context: &mut C) -> Self;
+    }
+    ```
 
 [^ooa]:
     I don't know what to call this.
