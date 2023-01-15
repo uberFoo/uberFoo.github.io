@@ -49,10 +49,9 @@ At least, it is to me!
 
 Consider these two input domains:
 ![Sarzak Domain](/assets/images/sarzak_0_small.png)
-[fullsize](/assets/images/sarzak_0_smallish.png) of the domain.
-
+[fullsize](/assets/images/sarzak_0_smallish.png)
 ![Drawing Domain](/assets/images/drawing_0_small.png)
-Here's a [larger version](/assets/images/drawing_0_smallish.png) of the domain.
+[fullsize](/assets/images/drawing_0_smallish.png)
 
 The first is the model of _modeling_[^ooa].
 It is the bare minimum necessary to capture the information in the model.
