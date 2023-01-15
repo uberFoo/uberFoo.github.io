@@ -139,6 +139,7 @@ Maybe a _10_?
 (For some reason, in my head, things get more abstract the closer they are to zero.)
 What are instances of `Widget` good for?
 How do you get them?
+
 You still do code generation for `Widget` using things from the sarzak domain, not the domain from which `Widget` cometh!
 So what good is this domain?
 
