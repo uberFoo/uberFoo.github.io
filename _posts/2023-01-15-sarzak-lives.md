@@ -56,6 +56,7 @@ Consider these two input domains:
 The first is the model of _modeling_[^ooa].
 It is the bare minimum necessary to capture the information in the model.
 The second is a model of drawing the boxes and lines.
+
 Together they represent the JSON input[^nb].
 Or they will once I'm done with them.
 The topmost diagram is in a state of transition.
@@ -65,9 +66,11 @@ The bottom one is more complete, if lacking in some respects I think.
 I've run the two models through nut.
 I have **SARZAK** 🤣: a generated rust module, containing everything I need to build _another_ code generator!
 Just easier, and better this time around.
+
 Mostly because I'll be able to update the model, and get my changes automatically generated.
 I've also got ideas on how to mix generated and hand written code.
 I'm a long ways from a 100% generated generator, so there will be hand written code for a while.
+
 Finally, sarzak is recursive, and I just ❤️ recursion.
 
 ### Code Generation
