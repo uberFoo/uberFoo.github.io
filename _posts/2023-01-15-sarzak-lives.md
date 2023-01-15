@@ -173,7 +173,7 @@ I guess I'll have to give that another dog name...
 ## Footnotes
 
 [^extrude]:
-    Extrusion is what I call it when I'm changing the underlying data structure, brining along instances.
+    Extrusion is what I call it when I'm changing the underlying data structure, bringing instances alomg for the ride.
 
     I needed to do this because the original, hand written, model had errors.
     Neither was it ideally suited to code generation.
