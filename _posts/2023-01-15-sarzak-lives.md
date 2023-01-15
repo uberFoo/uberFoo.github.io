@@ -95,6 +95,7 @@ pub trait Render {
 
 This will work well with code generation where my basic unit is a `Context`, which is a string with methods, e.g., `increase_indent()`.
 It will also work well when I want to render to SVG for the next iteration of the tool.
+
 I was even thinking that it could be possible stuff the implementation into a code block, just like above in the source for this document.
 
 That last idea would be a hack until something better.
