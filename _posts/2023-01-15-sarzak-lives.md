@@ -148,8 +148,10 @@ The `Widget` domain.
 
 Off the top of my head this seems like a great place to test models[^tdd].
 We've got the ability to create new instances, and manipulate them.
+
 Once I've got state machines working, you'll be able to send events to instances as well.
 At this point it's starting to look like a simulation environment, which is another possibility.
+
 I've also thought about having a REPL to play with instances of your model.
 Using the sarzak generated code would be a good starting place for any of these.
 
