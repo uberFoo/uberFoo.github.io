@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ''
+title: 'Modeling and Bugs'
 author: Keith Star
 tags: modeling
 ---
