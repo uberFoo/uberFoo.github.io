@@ -179,7 +179,7 @@ function playground_text(playground, hidden = true) {
 
         // fetch_with_timeout("https://play.rust-lang.org/evaluate.json", {
         // fetch_with_timeout("http://localhost:9000", {
-        fetch_with_timeout("https://747gmakqxhgy7de3qkep66r3xa0hbmwd.lambda-url.us-west-2.on.aws", {
+        fetch_with_timeout("https://6n5af6c479.execute-api.us-west-2.amazonaws.com/run_dwarf", {
             headers: {
                 'Content-Type': "text/plain",
             },
