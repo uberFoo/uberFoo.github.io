@@ -24,7 +24,7 @@ function playground_text(playground, hidden = true) {
 }
 
 (function codeSnippets() {
-    function fetch_with_timeout(url, options, timeout = 6000) {
+    function fetch_with_timeout(url, options, timeout = 12000) {
         return Promise.race([
             fetch(url, options),
             new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), timeout))
@@ -178,7 +178,7 @@ function playground_text(playground, hidden = true) {
         result_block.innerText = "Running...";
 
         // fetch_with_timeout("https://play.rust-lang.org/evaluate.json", {
-        // fetch_with_timeout("http://localhost:9000", {
+        // fetch_with_timeout("http://localhost:9000", {h
         fetch_with_timeout("https://6n5af6c479.execute-api.us-west-2.amazonaws.com/run_dwarf", {
             headers: {
                 'Content-Type': "text/plain",
