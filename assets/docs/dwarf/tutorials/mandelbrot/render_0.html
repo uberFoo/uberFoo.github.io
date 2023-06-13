@@ -219,17 +219,17 @@ fn escape_time(c: Complex, limit: int) -&gt; Option&lt;int&gt; {
         // 🚧 This let wreaks havoc -- fix it.
         // Also the chained method calls don't affect the correct z, or something.
         // let z = z.square(z).add(z, c);
-        // z = ComplexEx::square(z);
-        // z = ComplexEx::add(z, c);
-        z = z.square();
+        z = ComplexEx::square(z);
+        z = ComplexEx::add(z, c);
+        //z = z.square();
         // z.square_2();
-        z = z.add(c);
+        //z = z.add(c);
         // z.add_2(c);
         // Having the RHS of this statement on the lhs of the expression below
         // does not work.
-        // let foo = ComplexEx::norm_squared(z);
-        // if foo &gt; 4.0 {
-        if z.norm_squared() &gt; 4.0 {
+        let foo = ComplexEx::norm_squared(z);
+        if foo &gt; 4.0 {
+        //if z.norm_squared() &gt; 4.0 {
             // debugger;
             // return Some(i);
             return i;
