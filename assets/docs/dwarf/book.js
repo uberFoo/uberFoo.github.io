@@ -177,8 +177,7 @@ function playground_text(playground, hidden = true) {
 
         result_block.innerText = "Running...";
 
-        // fetch_with_timeout("https://play.rust-lang.org/evaluate.json", {
-        // fetch_with_timeout("http://localhost:9000", {h
+        // fetch_with_timeout("http://localhost:9000", {
         fetch_with_timeout("https://6n5af6c479.execute-api.us-west-2.amazonaws.com/run_dwarf", {
             headers: {
                 'Content-Type': "text/plain",
