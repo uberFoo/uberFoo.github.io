@@ -155,15 +155,23 @@
 <h2 id="string"><a class="header" href="#string">String <a name="a002"></a></a></h2>
 <p>The string type is esentially a wrapper for Rust's <code>String</code> type.
 That is to say that it is a proper unicode string, encoded as UTF-8.</p>
-<pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">#fn main() {
-</span>let s = &quot;Hello, world!🎉💥&quot;;
+<pre><pre class="tunnel"><code class="language-dwarf hidelines=#"><span class="boring">#fn main() {
+</span>let s: string = &quot;Hello, world!🎉💥&quot;;
+// Note the addition operator below.
 print(s + &quot;\n&quot;);
 
 // Strings are also iterable.
 for c in s {
     print(c + &quot;\n&quot;);
 }
+
+// Can we get the length of a string?
+//print(s.len() + &quot;\n&quot;);
+
+// Can we index into a string?
+//print(s[s.len()] + &quot;\n&quot;);
 <span class="boring">}</span></code></pre></pre>
+<pre><code></code></pre>
 
                     </main>
 
