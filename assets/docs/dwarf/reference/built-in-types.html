@@ -151,8 +151,19 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="built-in-types"><a class="header" href="#built-in-types">Built-in Types</a></h1>
-<p>dwarf contains a handful of primitive <a name="a001"></a>types.
-Here's I'll also be talking about <a name="a002"></a><code>string</code>s.</p>
+<p>dwarf contains a handful of primitive <a name="a001"></a>types.</p>
+<h2 id="string"><a class="header" href="#string">String <a name="a002"></a></a></h2>
+<p>The string type is esentially a wrapper for Rust's <code>String</code> type.
+That is to say that it is a proper unicode string, encoded as UTF-8.</p>
+<pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">#fn main() {
+</span>let s = &quot;Hello, world!🎉💥&quot;;
+print(s + &quot;\n&quot;);
+
+// Strings are also iterable.
+for c in s {
+    print(c + &quot;\n&quot;);
+}
+<span class="boring">}</span></code></pre></pre>
 
                     </main>
 

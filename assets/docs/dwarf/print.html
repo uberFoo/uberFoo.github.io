@@ -221,19 +221,21 @@ Go figure.</p>
 None of the tooling cares what you name them.</p>
 </li>
 <li>
-<p>The interpreter looks for a <a name="a002"></a><code>main</code> function, where it will begin execution.
-Passing <a name="a003"></a>command line arguments to main from the interpreter is supported in a minimal manner.
-The argmets are available as a list of strings, and can be accessed using the <a href="./chacha.html#args"><code>chacha::args</code></a> function.</p>
+<p>The interpreter looks for a <a name="a002"></a><code>main</code> function, where it will begin execution.</p>
 </li>
-<li>
-<p>In dwarf, just about everything is an <a name="a004"></a>expression.
+</ol>
+<pre><pre class="tunnel"><code class="language-dwarf">fn main() {
+    print(&quot;Hello, world!\n&quot;);
+}</code></pre></pre>
+<p>Passing <a name="a003"></a>command line arguments to main from the interpreter is <a href="./chacha.html#args">supported</a>.</p>
+<ol start="0">
+<li>In dwarf, just about everything is an <a name="a004"></a>expression.
 The only thing that is not an expression is a <a name="a005"></a><code>let</code> statement.
 That's not true.
-Items inside blocks are also statemnts.
+Items inside blocks are also statements.
 So that's only two things that I can think of.
 Putting a semicolon at the end of an expression makes it a statement, but it's still an expression underneath.
-This is super powerful, and allows for some really cool things.</p>
-</li>
+This is super powerful, and allows for some really cool things.</li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="mandelbrot-set"><a class="header" href="#mandelbrot-set">Mandelbrot Set</a></h1>
 <p>I imagine that everyone is faimilar with the <a name="a001"></a>Mandelbrot set.
@@ -571,8 +573,19 @@ fn main() {
 <a name="a004"></a>ChaCha knows about references, but dwarf does not.</p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="built-in-types"><a class="header" href="#built-in-types">Built-in Types</a></h1>
-<p>dwarf contains a handful of primitive <a name="a001"></a>types.
-Here's I'll also be talking about <a name="a002"></a><code>string</code>s.</p>
+<p>dwarf contains a handful of primitive <a name="a001"></a>types.</p>
+<h2 id="string"><a class="header" href="#string">String <a name="a002"></a></a></h2>
+<p>The string type is esentially a wrapper for Rust's <code>String</code> type.
+That is to say that it is a proper unicode string, encoded as UTF-8.</p>
+<pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">#fn main() {
+</span>let s = &quot;Hello, world!🎉💥&quot;;
+print(s + &quot;\n&quot;);
+
+// Strings are also iterable.
+for c in s {
+    print(c + &quot;\n&quot;);
+}
+<span class="boring">}</span></code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="user-defined-types"><a class="header" href="#user-defined-types">User-defined Types</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="chacha-runtime-reference"><a class="header" href="#chacha-runtime-reference">ChaCha Runtime Reference</a></h1>
 <p>The interpreter is started via the <code>dwarf</code> binary:</p>
@@ -610,7 +623,7 @@ Options:
           Print version
 </code></pre>
 <h2 id="args"><a class="header" href="#args">args</a></h2>
-<p>Command line arguments are made available to a running program via the <code>chacha::args</code> function:</p>
+<p>Command line arguments are made available to a running program as a <a name="a001"></a> <a href="./reference/built-in-types.html#vector">vector</a> of <a name="a002"></a> <a href="./reference/built-in-types.html#string">strings</a> via the <code>chacha::args</code> function:</p>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
     for arg in chacha::args() {
         print(arg + &quot;\n&quot;);
@@ -668,11 +681,12 @@ statement, <a href="reference/statements.html#a001">1</a><br/>
       Let Statement, see <code>let</code><br/>
       Result Statement, <a href="reference/statements.html#a005">1</a><br/>
 static method, <a href="tutorials/mandelbrot/complex.html#a007">1</a><br/>
+string, <a href="reference/built-in-types.html#a002">1</a>, <a href="chacha.html#a002">2</a><br/>
 <code>struct</code>, <a href="tutorials/mandelbrot/complex.html#a004">1</a><br/>
 tuple, <a href="tutorials/mandelbrot/complex.html#a002">1</a><br/>
 types, <a href="reference/built-in-types.html#a001">1</a><br/>
       <code>float</code>, <a href="tutorials/mandelbrot/complex.html#a003">1</a><br/>
-      <code>string</code>, <a href="reference/built-in-types.html#a002">1</a><br/></p>
+vector, <a href="chacha.html#a001">1</a><br/></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="postface"><a class="header" href="#postface">Postface</a></h1>
 <p>I started dwarf on April 6, 2023.
 It was meant to be as a DSL for it's parent project <code>sarzak</code>.

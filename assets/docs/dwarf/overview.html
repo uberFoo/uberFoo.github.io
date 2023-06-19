@@ -164,19 +164,21 @@ Go figure.</p>
 None of the tooling cares what you name them.</p>
 </li>
 <li>
-<p>The interpreter looks for a <a name="a002"></a><code>main</code> function, where it will begin execution.
-Passing <a name="a003"></a>command line arguments to main from the interpreter is supported in a minimal manner.
-The argmets are available as a list of strings, and can be accessed using the <a href="./chacha.html#args"><code>chacha::args</code></a> function.</p>
+<p>The interpreter looks for a <a name="a002"></a><code>main</code> function, where it will begin execution.</p>
 </li>
-<li>
-<p>In dwarf, just about everything is an <a name="a004"></a>expression.
+</ol>
+<pre><pre class="tunnel"><code class="language-dwarf">fn main() {
+    print(&quot;Hello, world!\n&quot;);
+}</code></pre></pre>
+<p>Passing <a name="a003"></a>command line arguments to main from the interpreter is <a href="./chacha.html#args">supported</a>.</p>
+<ol start="0">
+<li>In dwarf, just about everything is an <a name="a004"></a>expression.
 The only thing that is not an expression is a <a name="a005"></a><code>let</code> statement.
 That's not true.
-Items inside blocks are also statemnts.
+Items inside blocks are also statements.
 So that's only two things that I can think of.
 Putting a semicolon at the end of an expression makes it a statement, but it's still an expression underneath.
-This is super powerful, and allows for some really cool things.</p>
-</li>
+This is super powerful, and allows for some really cool things.</li>
 </ol>
 
                     </main>
