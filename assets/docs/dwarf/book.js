@@ -177,8 +177,8 @@ function playground_text(playground, hidden = true) {
 
         result_block.innerText = "Running...";
 
-        fetch_with_timeout("http://localhost:9000", {
-            // fetch_with_timeout("https://6n5af6c479.execute-api.us-west-2.amazonaws.com/run_dwarf", {
+        // fetch_with_timeout("http://localhost:9000", {
+        fetch_with_timeout("https://6n5af6c479.execute-api.us-west-2.amazonaws.com/run_dwarf", {
             headers: {
                 'Content-Type': "text/plain",
             },
@@ -328,7 +328,7 @@ function playground_text(playground, hidden = true) {
             undoChangesButton.addEventListener('click', function () {
                 let editor = window.ace.edit(code_block);
                 editor.setOptions({
-                    scrollbar: {
+                    scrollBar: {
                         alwaiesVisible: true,
                         size: 10
                     }

@@ -197,16 +197,18 @@ I might get to it before release.</p>
 <h2 id="typeof"><a class="header" href="#typeof">typeof</a></h2>
 <p>This is exactly what it sounds like.
 Pass a value, and see what type it is:</p>
-<pre><pre class="tunnel"><code class="language-dwarf">fn main() {
-    print(chacha::typeof(42) + &quot;\n&quot;);
-    print(chacha::typeof(42.0) + &quot;\n&quot;);
-    print(chacha::typeof(&quot;42&quot;) + &quot;\n&quot;);
-    print(chacha::typeof(true) + &quot;\n&quot;);
-    print(chacha::typeof(false) + &quot;\n&quot;);
-    print(chacha::typeof({}) + &quot;\n&quot;);
-    print(chacha::typeof(()) + &quot;\n&quot;);
-    print(chacha::typeof({42}) + &quot;\n&quot;);
-    print(chacha::typeof({42, 42.0, &quot;42&quot;, true, false}) + &quot;\n&quot;);
+<pre><pre class="tunnel"><code class="language-dwarf  editable">fn main() {
+    print(chacha::typeof(42));
+    print(chacha::typeof(42.0));
+    print(chacha::typeof(&quot;42&quot;));
+    print(chacha::typeof(true));
+    print(chacha::typeof(false));
+    print(chacha::typeof({}));
+    print(chacha::typeof([0, 1, 2, 3]));
+    print(chacha::typeof([&quot;0&quot;, &quot;1&quot;, &quot;2&quot;, &quot;3&quot;]));
+    print(chacha::typeof(0..100));
+//    print(chacha::typeof(()) );
+//    print(chacha::typeof({42, 42.0, &quot;42&quot;, true, false}));
 }</code></pre></pre>
 
                     </main>
