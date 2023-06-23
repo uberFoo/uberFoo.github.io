@@ -153,6 +153,9 @@
                     <main>
                         <p><img src="images/dwarf@0.5x.png" alt="The Dwarf Logo" /></p>
 <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<blockquote>
+<p>🚧 This is book is a work in progress. 🚧</p>
+</blockquote>
 <p>Welcome!
 This brief introduction will outline the status of dwarf, and set the stage for what's to come.</p>
 <h2 id="hello-world"><a class="header" href="#hello-world"><a name="a001"></a>Hello World</a></h2>
@@ -167,9 +170,9 @@ I know you want to. 😀</p>
 <h2 id="a-brief-story-of-dwarf"><a class="header" href="#a-brief-story-of-dwarf">A brief story of dwarf</a></h2>
 <blockquote>
 <p><strong>Caveat Emptor / Note Bene, etcetera</strong></p>
-<p>This is very much a work in progress.
-It's maybe at an alpha stage, but centainly not beta.
-I don't honestly see very many breaking changes, but I can't promise anything.</p>
+<p>The dwarf (the language and it's implementation) is very much a work in progress.
+It's maybe at an alpha stage, and certainly not beta.
+I don't honestly see very many breaking changes, however I won't promise anything until 1.0.</p>
 </blockquote>
 <p>Dwarf started life as a DSLfor another project.
 I've had so much fun with it, I want to see if anyone else might find it generally useful.
@@ -912,6 +915,25 @@ let question = &quot;Huh?&quot;;
 let msg = &quot;The answer to life, the universe, and everything is {1}. {0} Really, {1}\n&quot;;
 print(msg.format(question, answer));
 <span class="boring">}</span></code></pre></pre>
+<h2 id="vector--list"><a class="header" href="#vector--list">Vector / List <a name="a004"></a></a></h2>
+<p>The vector type is esentially a wrapper for Rust's <code>Vec</code> type.
+That is to say that it is a growable array.</p>
+<p>At this time it's not possible to name the type of this, which is why there's a slash in the heading.
+In order to name this type dwarf would need to first support generics.
+This is likely to happen in the near future.</p>
+<pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">#fn main() {
+</span>// 🚧 I need some sort of example. What do I want to do with these? There are
+// all sorts of iterator functions that we could surface, but I'd pretty much
+// need closures to do that.
+let c = [1, 2, 3, 4, 5];
+
+let func = fn (x: int) -&gt; int {
+    return x * x;
+};
+
+print(func());
+
+<span class="boring">}</span></code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="user-defined-types"><a class="header" href="#user-defined-types">User-defined Types</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="chacha-runtime-reference"><a class="header" href="#chacha-runtime-reference">ChaCha Runtime Reference</a></h1>
 <p>The interpreter is started via the <code>dwarf</code> binary:</p>
@@ -974,6 +996,9 @@ Pass a value, and see what type it is:</p>
 //    print(chacha::typeof({42, 42.0, &quot;42&quot;, true, false}));
 }</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="for-hackers"><a class="header" href="#for-hackers">For Hackers</a></h1>
+<blockquote>
+<p>&quot;The best programmers are not always the most productive. They are the ones who are able to let go of their ego and embrace the Tao. They write code that is simple and elegant, yet powerful and efficient. They understand that the best code is the code that is not written. They know that the best way to solve a problem is to avoid it altogether. They are like water, which flows around obstacles and finds the path of least resistance. They are the masters of their craft, yet they remain humble and open to learning. They are the ones who create software that is a joy to use and a pleasure to maintain.&quot;</p>
+</blockquote>
 <p>First off, the code is pretty rough.
 I've been hacking on this pretty much non-stop for three months.
 And the code generator is still in it's infancy too.</p>
@@ -1025,15 +1050,15 @@ statement, <a href="overview.html#a002">1</a>, <a href="reference/statements.htm
       Result Statement, <a href="reference/statements.html#a005">1</a><br/>
 static method, <a href="tutorials/mandelbrot/complex.html#a007">1</a><br/>
 string, <a href="reference/built-in-types.html#a002">1</a>, <a href="chacha.html#a002">2</a><br/>
-<code>struct</code>, <a href="tutorials/mandelbrot/complex.html#a004">1</a><br/>
 struct, <a href="overview.html#a009">1</a><br/>
+<code>struct</code>, <a href="tutorials/mandelbrot/complex.html#a004">1</a><br/>
 then expression, <a href="overview.html#a014">1</a><br/>
 tuple, <a href="tutorials/mandelbrot/complex.html#a002">1</a><br/>
 type conversion, <a href="overview.html#a016">1</a><br/>
 types, <a href="reference/built-in-types.html#a001">1</a><br/>
       <code>float</code>, <a href="overview.html#a019">1</a>, <a href="tutorials/mandelbrot/complex.html#a003">2</a><br/>
 variable, <a href="overview.html#a007">1</a><br/>
-vector, <a href="chacha.html#a001">1</a><br/></p>
+vector, <a href="reference/built-in-types.html#a004">1</a>, <a href="chacha.html#a001">2</a><br/></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="postface"><a class="header" href="#postface">Postface</a></h1>
 <p>I started dwarf on April 6, 2023.
 It was meant to be as a DSL for it's parent project <code>sarzak</code>.

@@ -190,6 +190,25 @@ let question = &quot;Huh?&quot;;
 let msg = &quot;The answer to life, the universe, and everything is {1}. {0} Really, {1}\n&quot;;
 print(msg.format(question, answer));
 <span class="boring">}</span></code></pre></pre>
+<h2 id="vector--list"><a class="header" href="#vector--list">Vector / List <a name="a004"></a></a></h2>
+<p>The vector type is esentially a wrapper for Rust's <code>Vec</code> type.
+That is to say that it is a growable array.</p>
+<p>At this time it's not possible to name the type of this, which is why there's a slash in the heading.
+In order to name this type dwarf would need to first support generics.
+This is likely to happen in the near future.</p>
+<pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">#fn main() {
+</span>// 🚧 I need some sort of example. What do I want to do with these? There are
+// all sorts of iterator functions that we could surface, but I'd pretty much
+// need closures to do that.
+let c = [1, 2, 3, 4, 5];
+
+let func = fn (x: int) -&gt; int {
+    return x * x;
+};
+
+print(func());
+
+<span class="boring">}</span></code></pre></pre>
 
                     </main>
 
