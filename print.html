@@ -155,7 +155,7 @@
 <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
 <p>Welcome!
 This brief introduction will outline the status of dwarf, and set the stage for what's to come.</p>
-<h2 id="ihello-world"><a class="header" href="#ihello-world">{{i:Hello World}}</a></h2>
+<h2 id="hello-world"><a class="header" href="#hello-world"><a name="a001"></a>Hello World</a></h2>
 <p>Every language deserves one, so let's get it out of the way.
 Go ahead and click the run button in the top right corner.</p>
 <pre><pre class="tunnel"><code class="language-dwarf  editable">fn main() {
@@ -214,13 +214,13 @@ Running as a lambda, it's even not faster... er, slower. 😎</p>
 This section is a walkthrough of the language.
 It is designed to provide information in an order useful to someone new to programming.</p>
 <h2 id="functions-and-statements"><a class="header" href="#functions-and-statements">Functions and Statements</a></h2>
-<p>Let's start with {{i: function}}s and {{i: statement}}s.
+<p>Let's start with <a name="a001"></a>functions and <a name="a002"></a>statements.
 Functions are composed of statements between curly braces.
 You already saw a function in the <a href="./introduction.html">introduction</a>.
-That function printed {{i:<code>()</code>}} after the <code>Hello, world!</code> message.
-In dwarf we just call that the {{i: empty}} type/value.
+That function printed <a name="a003"></a><code>()</code> after the <code>Hello, world!</code> message.
+In dwarf we just call that the <a name="a004"></a>empty type/value.
 It's a type, and a value, and it's the only value of it's type.
-A function (and any {{i: block}} for that matter) returns the value of it's last statement.
+A function (and any <a name="a005"></a>block for that matter) returns the value of it's last statement.
 A statement that ends in a semi-colon has the empty value:</p>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
     print(&quot;&quot;);
@@ -236,14 +236,14 @@ For now just know that basically everything in dwarf is an expression.</p>
 </blockquote>
 <h3 id="let-statement"><a class="header" href="#let-statement">Let Statement</a></h3>
 <p>Not all statements are composed of expressions.
-In particular is the {{i: <code>let</code>}} statement.
+In particular is the <a name="a006"></a><code>let</code> statement.
 Since the let statement has no value, it must be terminated with a semi-colon.
 The following is not valid and throws an error:</p>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
     let a = 42
 }</code></pre></pre>
 <p>The let statement is instead used to assign a value to a storage location, or memory.
-The storage location is called a {{i: variable}}, and has a name.
+The storage location is called a <a name="a007"></a>variable, and has a name.
 You use the name to refer to the variable elsewhere in the function:</p>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
     let a = 42;
@@ -262,8 +262,8 @@ print(foo(42) + &quot;\n&quot;);
 <span class="boring">}</span></code></pre></pre>
 <blockquote>
 <p><strong>Advanced Statements</strong></p>
-<p>There is a third type of statement, called an {{i: item}} statement.
-It's useful for defining {{i: struct}}s and {{i: function}}s inside of a {{i: block expression}}.
+<p>There is a third type of statement, called an <a name="a008"></a>item statement.
+It's useful for defining <a name="a009"></a>structs and <a name="a010"></a>functions inside of a <a name="a011"></a>block expression.
 Below is an example of both:</p>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
     struct Point {
@@ -285,9 +285,9 @@ Below is an example of both:</p>
 }</code></pre></pre>
 </blockquote>
 <h2 id="conditional-expressions"><a class="header" href="#conditional-expressions">Conditional Expressions</a></h2>
-<p>Next up is the {{i: conditional expression}}.
+<p>Next up is the <a name="a012"></a>conditional expression.
 Conditional expressions are used to make decisions.
-They are composed of three parts: a {{i: condition}}, a {{i: then expression}}, and an {{i: else expression}}.
+They are composed of three parts: a <a name="a013"></a>condition, a <a name="a014"></a>then expression, and an <a name="a015"></a>else expression.
 The condition is an expression that evaluates to a boolean value.
 The then and else expressions are expressions that evaluate to the same type.
 The type of the conditional expression is the type of the then and else expressions.
@@ -300,8 +300,8 @@ The following is an example of a conditional expression:</p>
 }</code></pre></pre>
 <blockquote>
 <p><strong>Numeric Type Casting</strong></p>
-<p>There are some subtleties to conditional expressions with regard to {{i: type conversion}}.
-In the example below if we let {{i: ChhCha}} do the conversion for us it will convert the {{i: <code>int</code>}} to a {{i: <code>float</code>}}.
+<p>There are some subtleties to conditional expressions with regard to <a name="a016"></a>type conversion.
+In the example below if we let <a name="a017"></a>ChhCha do the conversion for us it will convert the <a name="a018"></a><code>int</code> to a <a name="a019"></a><code>float</code>.
 The first comparison turns out as expected.</p>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
     let a = 3;
@@ -311,10 +311,10 @@ The first comparison turns out as expected.</p>
     let c = if a &gt;= b as int  { a } else { b }; // c == ?
     print(c as string + &quot;\n&quot;);
 }</code></pre></pre>
-<p>In the second comparison we are casting <code>b</code> to an <code>int</code> with the {{i: <code>as</code>}} expression.
+<p>In the second comparison we are casting <code>b</code> to an <code>int</code> with the <a name="a020"></a><code>as</code> expression.
 Note the difference.</p>
 </blockquote>
-<p>There are all the usual {{i: comparison operators}}: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>.
+<p>There are all the usual <a name="a021"></a>comparison operators: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>.
 Here are a few examples.</p>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
     let a = true;
@@ -335,7 +335,7 @@ fn main() {
 <blockquote>
 <p><strong>Expression Magic</strong></p>
 <p>Having everything as an expression pays great dividends.
-In the example above notice how we assign <code>c</code> to the result of the {{i: <code>if</code>}} expression.
+In the example above notice how we assign <code>c</code> to the result of the <a name="a022"></a><code>if</code> expression.
 <code>if</code> actually has a value, which is the value of it's evaluation.
 It's expressions all the way down. 🥁</p>
 </blockquote>
@@ -364,7 +364,7 @@ print(42 as string + &quot;\n&quot;);
 <h2 id="golden-nuggets-"><a class="header" href="#golden-nuggets-">Golden Nuggets ⭐️🌟✨</a></h2>
 <ol start="0">
 <li>
-<p>The interpreter is called {{i: ChaCha}}, but the binary is called <code>dwarf</code>.
+<p>The interpreter is called <a name="a023"></a>ChaCha, but the binary is called <code>dwarf</code>.
 Go figure.</p>
 </li>
 <li>
@@ -372,16 +372,16 @@ Go figure.</p>
 None of the tooling cares what you name them.</p>
 </li>
 <li>
-<p>The interpreter looks for a {{i: <code>main</code>}} function, where it will begin execution.</p>
+<p>The interpreter looks for a <a name="a024"></a><code>main</code> function, where it will begin execution.</p>
 </li>
 </ol>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
     print(&quot;Hello, world!\n&quot;);
 }</code></pre></pre>
-<p>Passing {{i:command line arguments}} to main from the interpreter is <a href="./chacha.html#args">supported</a>.</p>
+<p>Passing <a name="a025"></a>command line arguments to main from the interpreter is <a href="./chacha.html#args">supported</a>.</p>
 <ol start="0">
-<li>In dwarf, just about everything is an {{i:expression}}.
-The only thing that is not an expression is a {{i:<code>let</code>}} statement.
+<li>In dwarf, just about everything is an <a name="a026"></a>expression.
+The only thing that is not an expression is a <a name="a027"></a><code>let</code> statement.
 That's not true.
 Items inside blocks are also statements.
 So that's only two things that I can think of.
@@ -389,11 +389,11 @@ Putting a semicolon at the end of an expression makes it a statement, but it's s
 This is super powerful, and allows for some really cool things.</li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="mandelbrot-set"><a class="header" href="#mandelbrot-set">Mandelbrot Set</a></h1>
-<p>I imagine that everyone is faimilar with the {{i: Mandelbrot set}}.
-It's a {{i: fractal}} that is generated by iterating a function over the complex plane.
+<p>I imagine that everyone is faimilar with the <a name="a001"></a>Mandelbrot set.
+It's a <a name="a002"></a>fractal that is generated by iterating a function over the complex plane.
 It makes really nifty pictures.
 <a href="https://www.youtube.com/watch?v=b005iHf8Z3g"><img src="https://img.youtube.com/vi/b005iHf8Z3g/0.jpg" alt="mandelbrot" /></a>.</p>
-<p>Doing this in dwarf is not as pretty, as dwarf can only output to the terminal using the {{i: <code>print</code>}} expression.
+<p>Doing this in dwarf is not as pretty, as dwarf can only output to the terminal using the <a name="a003"></a><code>print</code> expression.
 So ours is going to end up looking more like the first-ever image of the set:
 <img src="tutorials/./mandelbrot_orig.png" alt="mandelbrot-orig" />.</p>
 <p>The function that we'll be iterating to draw the set is really simple: \(f(z) = z^2 + c\), where \(z\) and \(c\) are both complex numbers.
@@ -403,14 +403,14 @@ That means that we'll need to invent our own complex type.
 As per above, we'll need to support addition and squaring.
 So, let's get started!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="coding-a-complex-type"><a class="header" href="#coding-a-complex-type">Coding a Complex Type</a></h1>
-<p>{{i: Complex numbers}} are really just a {{i: tuple}} of two {{i: <code>float</code>}}s.
+<p><a name="a001"></a>Complex numbers are really just a <a name="a002"></a>tuple of two <a name="a003"></a><code>float</code>s.
 One element is the real part of the number, and the other is the imaginary part.
 The real part is plotted along the x-axis, and the imaginary part is plotted along the y-axis.</p>
 <p>Addition and subtraction are defined as you would expect: perform the operation on the real and imaginary parts independently, e.g.: \((a, m) + (b, n) = (a + b, m + n)\).
 To multiply two complex numbers, one must refer back to multiplying two binomials: \((a + bi)(c + di) = ac + adi + bci + bdi^2\).
 But don't get caught up in the math — it's not on the test.</p>
 <h2 id="defining-the-type"><a class="header" href="#defining-the-type">Defining the Type</a></h2>
-<p>dwarf doesn't have tuples (yet) so we'll use {{i: <code>struct</code>}}s like so:</p>
+<p>dwarf doesn't have tuples (yet) so we'll use <a name="a004"></a><code>struct</code>s like so:</p>
 <pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">#fn main() {
 </span>struct Complex {
     re: float,
@@ -424,7 +424,7 @@ Each field is separated from another by a comma.
 Trailing commas are just fine.</p>
 <p>In this specific case we have a <em>struct</em> called <code>Complex</code> that has two fields, each of type <em>float</em>.
 The first is called <code>re</code>, and the second, <code>im</code>.</p>
-<p>Initializiation of a <em>struct</em> is done by a <em>{{i: struct expression}}</em>, just like Rust.
+<p>Initializiation of a <em>struct</em> is done by a <em><a name="a005"></a>struct expression</em>, just like Rust.
 if you are unfamiliar, a struct expression looks like the definition, but with values in place of types.</p>
 <pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">struct Complex {
 </span><span class="boring">   re: float,
@@ -438,7 +438,7 @@ if you are unfamiliar, a struct expression looks like the definition, but with v
     chacha::assert_eq(z.re, 1.23);
     chacha::assert_eq(z.im, 4.56);
 }</code></pre></pre>
-<p>The last two lines are functions provided by the runtime {{i: ChaCha}}.
+<p>The last two lines are functions provided by the runtime <a name="a006"></a>ChaCha.
 <code>chach::assert_eq</code> tests it's arguments for equality, and throws an error if they are not.</p>
 <h2 id="complex-methods"><a class="header" href="#complex-methods">Complex Methods</a></h2>
 <p>Having a type is a good start.
@@ -497,7 +497,7 @@ impl Complex {
 We are returning a <em>float</em>, but there is no <em>return</em> statement.
 Just like in Rust, the last expression in a <em>block</em> is the the value of the block.</p>
 <p>We'll need to be able to create the Complex number &quot;0&quot;.
-We can do that with a <em>{{i: static method}}</em>.
+We can do that with a <em><a name="a007"></a>static method</em>.
 Static methods are functions that belong to the type, rather than an instance of the type.
 Practically that means that the function does not take a <em>self</em> parameter.</p>
 <pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">struct Complex {
@@ -632,14 +632,14 @@ fn do_column(time: int, row: int, width: int, height: int, upper_left: Complex, 
     print(&quot;\n&quot;);
 }</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="statements"><a class="header" href="#statements">Statements</a></h1>
-<p>dwarf, like Rust uses only a handful {{i: statement}}s.</p>
-<h2 id="i-let-statement"><a class="header" href="#i-let-statement">{{i: Let Statement}}</a></h2>
-<p>The {{i: <code>let</code>}} statement is used to assign a value to a variable.</p>
+<p>dwarf, like Rust uses only a handful <a name="a001"></a>statements.</p>
+<h2 id="let-statement-1"><a class="header" href="#let-statement-1"><a name="a002"></a>Let Statement</a></h2>
+<p>The <a name="a003"></a><code>let</code> statement is used to assign a value to a variable.</p>
 <pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">#fn main() {
 </span>let x = 42;
 <span class="boring">}</span></code></pre></pre>
-<h2 id="i-expression-statement"><a class="header" href="#i-expression-statement">{{i: Expression Statement}}</a></h2>
-<h2 id="i-result-statement"><a class="header" href="#i-result-statement">{{i: Result Statement}}</a></h2>
+<h2 id="expression-statement"><a class="header" href="#expression-statement"><a name="a004"></a>Expression Statement</a></h2>
+<h2 id="result-statement"><a class="header" href="#result-statement"><a name="a005"></a>Result Statement</a></h2>
 <pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">#fn main() {
 </span>fn empty() -&gt; () {
     42;
@@ -655,7 +655,7 @@ print(value());
 print({});
 print({42});
 <span class="boring">}</span></code></pre></pre>
-<h2 id="i-item-statement"><a class="header" href="#i-item-statement">{{i: Item Statement}}</a></h2>
+<h2 id="item-statement"><a class="header" href="#item-statement"><a name="a006"></a>Item Statement</a></h2>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() -&gt; () {
     // This is aa item statement.
     // Note the lack of a semicolon.
@@ -673,9 +673,9 @@ print({42});
     print(foo());
 }</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="expressions"><a class="header" href="#expressions">Expressions</a></h1>
-<p>Here's we'll finally get to the mighty {{i:<code>if</code>}} expression.</p>
-<p>What's {{i:<code>=</code>}} that do?</p>
-<p>So now, {{i:expression}}.</p>
+<p>Here's we'll finally get to the mighty <a name="a001"></a><code>if</code> expression.</p>
+<p>What's <a name="a002"></a><code>=</code> that do?</p>
+<p>So now, <a name="a003"></a>expression.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="literal-expressions"><a class="header" href="#literal-expressions">Literal Expressions</a></h1>
 <blockquote>
 <p><strong><sup>Syntax</sup></strong><br />
@@ -829,7 +829,7 @@ In <code>rustc</code>, a literal large enough to be evaluated as infinite will t
 <div style="break-before: page; page-break-before: always;"></div><h1 id="unary-expressions"><a class="header" href="#unary-expressions">Unary Expressions</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="binary-expressions"><a class="header" href="#binary-expressions">Binary Expressions</a></h1>
 <h2 id="equality"><a class="header" href="#equality">Equality</a></h2>
-<p>The {{i: equals}} operator ({{i: <code>==</code>}}) tests two expressions for equality and returns a {{i:bool}}.</p>
+<p>The <a name="a001"></a>equals operator (<a name="a002"></a><code>==</code>) tests two expressions for equality and returns a <a name="a003"></a>bool.</p>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
     print(1 == 1); // true
     print(1 == 2); // false
@@ -870,12 +870,12 @@ fn main() {
     print(h == f); // true? false? *true*!
 }</code></pre></pre>
 <p>That said, it's a matter of perspective.
-{{i: ChaCha}} knows about references, but dwarf does not.</p>
+<a name="a004"></a>ChaCha knows about references, but dwarf does not.</p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="built-in-types"><a class="header" href="#built-in-types">Built-in Types</a></h1>
-<p>dwarf contains a handful of primitive {{i: types}}.</p>
-<h2 id="string-hi-string"><a class="header" href="#string-hi-string">String {{hi: string}}</a></h2>
-<p>{{hi: format}}</p>
+<p>dwarf contains a handful of primitive <a name="a001"></a>types.</p>
+<h2 id="string"><a class="header" href="#string">String <a name="a002"></a></a></h2>
+<p><a name="a003"></a></p>
 <p>The string type is esentially a wrapper for Rust's <code>String</code> type.
 That is to say that it is a proper unicode string, encoded as UTF-8.</p>
 <pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">#fn main() {
@@ -949,7 +949,7 @@ Options:
           Print version
 </code></pre>
 <h2 id="args"><a class="header" href="#args">args</a></h2>
-<p>Command line arguments are made available to a running program as a {{hi: vector}} <a href="./reference/built-in-types.html#vector">vector</a> of {{hi: string}} <a href="./reference/built-in-types.html#string">strings</a> via the <code>chacha::args</code> function:</p>
+<p>Command line arguments are made available to a running program as a <a name="a001"></a> <a href="./reference/built-in-types.html#vector">vector</a> of <a name="a002"></a> <a href="./reference/built-in-types.html#string">strings</a> via the <code>chacha::args</code> function:</p>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
     for arg in chacha::args() {
         print(arg + &quot;\n&quot;);
@@ -977,7 +977,7 @@ Pass a value, and see what type it is:</p>
 <p>First off, the code is pretty rough.
 I've been hacking on this pretty much non-stop for three months.
 And the code generator is still in it's infancy too.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="iparser"><a class="header" href="#iparser">{{i:Parser}}</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="parser"><a class="header" href="#parser"><a name="a001"></a>Parser</a></h1>
 <blockquote>
 <p>The problem with parser generators is that you need to understand how a parser works in order to use one.
 If you don't understand how a parser works, you're going to get confused, and frustrated.
@@ -987,6 +987,53 @@ In the latter case, you'll <em>then</em> be able to use a parser generator.</p>
 </blockquote>
 <p>So, I couldn't get the evil parser generator to pay attention to my needs.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="index"><a class="header" href="#index">Index</a></h1>
+<p><code>()</code>, <a href="overview.html#a003">1</a><br/>
+<code>as</code>, <a href="overview.html#a020">1</a><br/>
+block, <a href="overview.html#a005">1</a><br/>
+block expression, <a href="overview.html#a011">1</a><br/>
+bool, <a href="reference/expressions/binary.html#a003">1</a><br/>
+ChaCha, <a href="overview.html#a023">1</a>, <a href="tutorials/mandelbrot/complex.html#a006">2</a>, <a href="reference/expressions/binary.html#a004">3</a><br/>
+ChhCha, <a href="overview.html#a017">1</a><br/>
+command line arguments, <a href="overview.html#a025">1</a><br/>
+comparison operators, <a href="overview.html#a021">1</a><br/>
+Complex numbers, <a href="tutorials/mandelbrot/complex.html#a001">1</a><br/>
+condition, <a href="overview.html#a013">1</a><br/>
+conditional expression, <a href="overview.html#a012">1</a><br/>
+else expression, <a href="overview.html#a015">1</a><br/>
+empty, <a href="overview.html#a004">1</a><br/>
+equals, see <code>==</code><br/>
+expression, <a href="overview.html#a026">1</a>, <a href="reference/expressions.html#a003">2</a><br/>
+      <code>=</code>, <a href="reference/expressions.html#a002">1</a><br/>
+      <code>==</code>, <a href="reference/expressions/binary.html#a001">1</a>, <a href="reference/expressions/binary.html#a002">2</a><br/>
+      <code>if</code>, <a href="overview.html#a022">1</a>, <a href="reference/expressions.html#a001">2</a><br/>
+      <code>print</code>, <a href="tutorials/mandelbrot.html#a003">1</a><br/>
+      struct expression, <a href="tutorials/mandelbrot/complex.html#a005">1</a><br/>
+format, <a href="reference/built-in-types.html#a003">1</a><br/>
+fractal, <a href="tutorials/mandelbrot.html#a002">1</a><br/>
+function, <a href="overview.html#a001">1</a>, <a href="overview.html#a010">2</a><br/>
+Hello World, <a href="introduction.html#a001">1</a><br/>
+<code>int</code>, <a href="overview.html#a018">1</a><br/>
+item, <a href="overview.html#a008">1</a><br/>
+<code>main</code>, <a href="overview.html#a024">1</a><br/>
+Mandelbrot set, <a href="tutorials/mandelbrot.html#a001">1</a><br/>
+Parser, <a href="hacker/arch/parser.html#a001">1</a><br/>
+statement, <a href="overview.html#a002">1</a>, <a href="reference/statements.html#a001">2</a><br/>
+      Expression Statement, <a href="reference/statements.html#a004">1</a><br/>
+      Item Statement, <a href="reference/statements.html#a006">1</a><br/>
+      <code>let</code>, <a href="overview.html#a006">1</a>, <a href="overview.html#a027">2</a>, <a href="reference/statements.html#a002">3</a>, <a href="reference/statements.html#a003">4</a><br/>
+      Let Statement, see <code>let</code><br/>
+      Result Statement, <a href="reference/statements.html#a005">1</a><br/>
+static method, <a href="tutorials/mandelbrot/complex.html#a007">1</a><br/>
+string, <a href="reference/built-in-types.html#a002">1</a>, <a href="chacha.html#a002">2</a><br/>
+<code>struct</code>, <a href="tutorials/mandelbrot/complex.html#a004">1</a><br/>
+struct, <a href="overview.html#a009">1</a><br/>
+then expression, <a href="overview.html#a014">1</a><br/>
+tuple, <a href="tutorials/mandelbrot/complex.html#a002">1</a><br/>
+type conversion, <a href="overview.html#a016">1</a><br/>
+types, <a href="reference/built-in-types.html#a001">1</a><br/>
+      <code>float</code>, <a href="overview.html#a019">1</a>, <a href="tutorials/mandelbrot/complex.html#a003">2</a><br/>
+variable, <a href="overview.html#a007">1</a><br/>
+vector, <a href="chacha.html#a001">1</a><br/></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="postface"><a class="header" href="#postface">Postface</a></h1>
 <p>I started dwarf on April 6, 2023.
 It was meant to be as a DSL for it's parent project <code>sarzak</code>.

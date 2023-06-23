@@ -155,13 +155,13 @@
 This section is a walkthrough of the language.
 It is designed to provide information in an order useful to someone new to programming.</p>
 <h2 id="functions-and-statements"><a class="header" href="#functions-and-statements">Functions and Statements</a></h2>
-<p>Let's start with {{i: function}}s and {{i: statement}}s.
+<p>Let's start with <a name="a001"></a>functions and <a name="a002"></a>statements.
 Functions are composed of statements between curly braces.
 You already saw a function in the <a href="./introduction.html">introduction</a>.
-That function printed {{i:<code>()</code>}} after the <code>Hello, world!</code> message.
-In dwarf we just call that the {{i: empty}} type/value.
+That function printed <a name="a003"></a><code>()</code> after the <code>Hello, world!</code> message.
+In dwarf we just call that the <a name="a004"></a>empty type/value.
 It's a type, and a value, and it's the only value of it's type.
-A function (and any {{i: block}} for that matter) returns the value of it's last statement.
+A function (and any <a name="a005"></a>block for that matter) returns the value of it's last statement.
 A statement that ends in a semi-colon has the empty value:</p>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
     print(&quot;&quot;);
@@ -177,14 +177,14 @@ For now just know that basically everything in dwarf is an expression.</p>
 </blockquote>
 <h3 id="let-statement"><a class="header" href="#let-statement">Let Statement</a></h3>
 <p>Not all statements are composed of expressions.
-In particular is the {{i: <code>let</code>}} statement.
+In particular is the <a name="a006"></a><code>let</code> statement.
 Since the let statement has no value, it must be terminated with a semi-colon.
 The following is not valid and throws an error:</p>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
     let a = 42
 }</code></pre></pre>
 <p>The let statement is instead used to assign a value to a storage location, or memory.
-The storage location is called a {{i: variable}}, and has a name.
+The storage location is called a <a name="a007"></a>variable, and has a name.
 You use the name to refer to the variable elsewhere in the function:</p>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
     let a = 42;
@@ -203,8 +203,8 @@ print(foo(42) + &quot;\n&quot;);
 <span class="boring">}</span></code></pre></pre>
 <blockquote>
 <p><strong>Advanced Statements</strong></p>
-<p>There is a third type of statement, called an {{i: item}} statement.
-It's useful for defining {{i: struct}}s and {{i: function}}s inside of a {{i: block expression}}.
+<p>There is a third type of statement, called an <a name="a008"></a>item statement.
+It's useful for defining <a name="a009"></a>structs and <a name="a010"></a>functions inside of a <a name="a011"></a>block expression.
 Below is an example of both:</p>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
     struct Point {
@@ -226,9 +226,9 @@ Below is an example of both:</p>
 }</code></pre></pre>
 </blockquote>
 <h2 id="conditional-expressions"><a class="header" href="#conditional-expressions">Conditional Expressions</a></h2>
-<p>Next up is the {{i: conditional expression}}.
+<p>Next up is the <a name="a012"></a>conditional expression.
 Conditional expressions are used to make decisions.
-They are composed of three parts: a {{i: condition}}, a {{i: then expression}}, and an {{i: else expression}}.
+They are composed of three parts: a <a name="a013"></a>condition, a <a name="a014"></a>then expression, and an <a name="a015"></a>else expression.
 The condition is an expression that evaluates to a boolean value.
 The then and else expressions are expressions that evaluate to the same type.
 The type of the conditional expression is the type of the then and else expressions.
@@ -241,8 +241,8 @@ The following is an example of a conditional expression:</p>
 }</code></pre></pre>
 <blockquote>
 <p><strong>Numeric Type Casting</strong></p>
-<p>There are some subtleties to conditional expressions with regard to {{i: type conversion}}.
-In the example below if we let {{i: ChhCha}} do the conversion for us it will convert the {{i: <code>int</code>}} to a {{i: <code>float</code>}}.
+<p>There are some subtleties to conditional expressions with regard to <a name="a016"></a>type conversion.
+In the example below if we let <a name="a017"></a>ChhCha do the conversion for us it will convert the <a name="a018"></a><code>int</code> to a <a name="a019"></a><code>float</code>.
 The first comparison turns out as expected.</p>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
     let a = 3;
@@ -252,10 +252,10 @@ The first comparison turns out as expected.</p>
     let c = if a &gt;= b as int  { a } else { b }; // c == ?
     print(c as string + &quot;\n&quot;);
 }</code></pre></pre>
-<p>In the second comparison we are casting <code>b</code> to an <code>int</code> with the {{i: <code>as</code>}} expression.
+<p>In the second comparison we are casting <code>b</code> to an <code>int</code> with the <a name="a020"></a><code>as</code> expression.
 Note the difference.</p>
 </blockquote>
-<p>There are all the usual {{i: comparison operators}}: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>.
+<p>There are all the usual <a name="a021"></a>comparison operators: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>.
 Here are a few examples.</p>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
     let a = true;
@@ -276,7 +276,7 @@ fn main() {
 <blockquote>
 <p><strong>Expression Magic</strong></p>
 <p>Having everything as an expression pays great dividends.
-In the example above notice how we assign <code>c</code> to the result of the {{i: <code>if</code>}} expression.
+In the example above notice how we assign <code>c</code> to the result of the <a name="a022"></a><code>if</code> expression.
 <code>if</code> actually has a value, which is the value of it's evaluation.
 It's expressions all the way down. 🥁</p>
 </blockquote>
@@ -305,7 +305,7 @@ print(42 as string + &quot;\n&quot;);
 <h2 id="golden-nuggets-"><a class="header" href="#golden-nuggets-">Golden Nuggets ⭐️🌟✨</a></h2>
 <ol start="0">
 <li>
-<p>The interpreter is called {{i: ChaCha}}, but the binary is called <code>dwarf</code>.
+<p>The interpreter is called <a name="a023"></a>ChaCha, but the binary is called <code>dwarf</code>.
 Go figure.</p>
 </li>
 <li>
@@ -313,16 +313,16 @@ Go figure.</p>
 None of the tooling cares what you name them.</p>
 </li>
 <li>
-<p>The interpreter looks for a {{i: <code>main</code>}} function, where it will begin execution.</p>
+<p>The interpreter looks for a <a name="a024"></a><code>main</code> function, where it will begin execution.</p>
 </li>
 </ol>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
     print(&quot;Hello, world!\n&quot;);
 }</code></pre></pre>
-<p>Passing {{i:command line arguments}} to main from the interpreter is <a href="./chacha.html#args">supported</a>.</p>
+<p>Passing <a name="a025"></a>command line arguments to main from the interpreter is <a href="./chacha.html#args">supported</a>.</p>
 <ol start="0">
-<li>In dwarf, just about everything is an {{i:expression}}.
-The only thing that is not an expression is a {{i:<code>let</code>}} statement.
+<li>In dwarf, just about everything is an <a name="a026"></a>expression.
+The only thing that is not an expression is a <a name="a027"></a><code>let</code> statement.
 That's not true.
 Items inside blocks are also statements.
 So that's only two things that I can think of.

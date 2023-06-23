@@ -186,7 +186,7 @@ Options:
           Print version
 </code></pre>
 <h2 id="args"><a class="header" href="#args">args</a></h2>
-<p>Command line arguments are made available to a running program as a {{hi: vector}} <a href="./reference/built-in-types.html#vector">vector</a> of {{hi: string}} <a href="./reference/built-in-types.html#string">strings</a> via the <code>chacha::args</code> function:</p>
+<p>Command line arguments are made available to a running program as a <a name="a001"></a> <a href="./reference/built-in-types.html#vector">vector</a> of <a name="a002"></a> <a href="./reference/built-in-types.html#string">strings</a> via the <code>chacha::args</code> function:</p>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
     for arg in chacha::args() {
         print(arg + &quot;\n&quot;);
