@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["SimpleSubtypeA","Simple [`Subtype`] A"],["SimpleSubtypeB","Simple [`Subtype`] B"]],"enum":[["SimpleSupertype","This [`Supertype`] is Simple"],["SuperT","A [`Supertype`] with normal [`Subtype`]s"]],"struct":[["SubtypeA","This [`Subtype`] has `Attribute`s"],["SubtypeB","This [`Subtype`] has a number"]]};

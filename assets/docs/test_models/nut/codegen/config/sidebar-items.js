@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["Config",""],["ConfigValue","The Main Configuration"],["ImportedObject","An Imported Object"],["SingletonObject","A Singleton Object"]]};

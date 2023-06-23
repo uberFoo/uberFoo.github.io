@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["AnotherObject","This is another object, but different."]]};

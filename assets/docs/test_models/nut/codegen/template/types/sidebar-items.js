@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":[["emit_doc_string","Generate struct/enum Documentation"],["emit_enum_main","Generate Enum"],["emit_enum_main_impl","Generate Enum Implementations"],["emit_singleton","Generate a singleton object"],["emit_struct_main",""]]};

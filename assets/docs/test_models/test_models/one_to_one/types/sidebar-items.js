@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["A","A: Referrer with Conditional [`Referent`]"],["B","B: Referrer Unconditional to Referent"],["C","C: Referrer to [`Referent`] Bi-Conditional"],["Referent","The target of our relationship tests."]]};

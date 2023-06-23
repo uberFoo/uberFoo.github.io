@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":[["emit_generated_code_comments",""]],"mod":[["macros",""],["types",""]]};

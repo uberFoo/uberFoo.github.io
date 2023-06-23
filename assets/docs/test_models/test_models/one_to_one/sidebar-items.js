@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["UUID_NS",""]],"mod":[["macros","Macros for navigating the “One To One” domain"],["store","ObjectStore for the instances of the “One To One” domain"],["types","Types for instances of the “One To One” domain"]]};
