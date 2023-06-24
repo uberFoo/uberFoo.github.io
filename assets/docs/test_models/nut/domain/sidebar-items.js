@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["generate_macros","Generate macros for drawing domain"],["generate_store","Generate ObjectStore for some domain"],["generate_types","Generate Domain Types"]]};

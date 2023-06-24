@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["A","This is the [`Referrer`] side of a 1-M relationship"],["B","Connected to TGT via R2. "],["C","This is the [`Referrent`] side of a 1-Mc"],["Referent","The object of so many relationships"]]};

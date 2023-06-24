@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["Everything","An object, with everything on it!"],["RandoObject","Just some random object with which we wish to relate"]]};
