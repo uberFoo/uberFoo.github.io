@@ -172,6 +172,7 @@ expression, <a href="overview.html#a026">1</a>, <a href="reference/expressions.h
       <code>if</code>, <a href="overview.html#a022">1</a>, <a href="reference/expressions.html#a001">2</a><br/>
       <code>print</code>, <a href="tutorials/mandelbrot.html#a003">1</a><br/>
       struct expression, <a href="tutorials/mandelbrot/complex.html#a005">1</a><br/>
+format, <a href="reference/built-in-types.html#a003">1</a><br/>
 fractal, <a href="tutorials/mandelbrot.html#a002">1</a><br/>
 function, <a href="overview.html#a001">1</a>, <a href="overview.html#a010">2</a><br/>
 Hello World, <a href="introduction.html#a001">1</a><br/>
@@ -196,7 +197,7 @@ type conversion, <a href="overview.html#a016">1</a><br/>
 types, <a href="reference/built-in-types.html#a001">1</a><br/>
       <code>float</code>, <a href="overview.html#a019">1</a>, <a href="tutorials/mandelbrot/complex.html#a003">2</a><br/>
 variable, <a href="overview.html#a007">1</a><br/>
-vector, <a href="chacha.html#a001">1</a><br/></p>
+vector, <a href="reference/built-in-types.html#a004">1</a>, <a href="chacha.html#a001">2</a><br/></p>
 
                     </main>
 
@@ -227,22 +228,6 @@ vector, <a href="chacha.html#a001">1</a><br/></p>
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 

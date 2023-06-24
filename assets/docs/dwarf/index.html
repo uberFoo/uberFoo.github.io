@@ -152,6 +152,9 @@
                     <main>
                         <p><img src="images/dwarf@0.5x.png" alt="The Dwarf Logo" /></p>
 <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<blockquote>
+<p>🚧 This is book is a work in progress. 🚧</p>
+</blockquote>
 <p>Welcome!
 This brief introduction will outline the status of dwarf, and set the stage for what's to come.</p>
 <h2 id="hello-world"><a class="header" href="#hello-world"><a name="a001"></a>Hello World</a></h2>
@@ -165,10 +168,10 @@ Go ahead and click the run button in the top right corner.</p>
 I know you want to. 😀</p>
 <h2 id="a-brief-story-of-dwarf"><a class="header" href="#a-brief-story-of-dwarf">A brief story of dwarf</a></h2>
 <blockquote>
-<p>Caveat Emptor / Note Bene, etcetera</p>
-<p>This is very much a work in progress.
-It's maybe at an alpha stage, but centainly not beta.
-I don't honestly see very many breaking changes, but I can't promise anything.</p>
+<p><strong>Caveat Emptor / Note Bene, etcetera</strong></p>
+<p>The dwarf (the language and it's implementation) is very much a work in progress.
+It's maybe at an alpha stage, and certainly not beta.
+I don't honestly see very many breaking changes, however I won't promise anything until 1.0.</p>
 </blockquote>
 <p>Dwarf started life as a DSLfor another project.
 I've had so much fun with it, I want to see if anyone else might find it generally useful.
@@ -203,7 +206,7 @@ I put this on the shelf in favor of just publishing something a little more poli
 It's also a great way to prototype ideas.</p>
 <p>So, thanks for taking a look, I hope you enjoy what you find!</p>
 <blockquote>
-<p>A note regarding the code in this book:</p>
+<p><strong>A note regarding the code in this book:</strong></p>
 <p>The code snippets contained herein are executed by AWS Lambda.
 I've mentioned elsewhere that the interpreter is not fast.
 Running as a lambda, it's even not faster... er, slower. 😎</p>
@@ -232,22 +235,6 @@ Running as a lambda, it's even not faster... er, slower. 😎</p>
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 

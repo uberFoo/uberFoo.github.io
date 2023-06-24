@@ -153,6 +153,7 @@
                         <h1 id="built-in-types"><a class="header" href="#built-in-types">Built-in Types</a></h1>
 <p>dwarf contains a handful of primitive <a name="a001"></a>types.</p>
 <h2 id="string"><a class="header" href="#string">String <a name="a002"></a></a></h2>
+<p><a name="a003"></a></p>
 <p>The string type is esentially a wrapper for Rust's <code>String</code> type.
 That is to say that it is a proper unicode string, encoded as UTF-8.</p>
 <pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">#fn main() {
@@ -170,10 +171,43 @@ for c in s {
 let len = s.len();
 
 // Note that indexing into a string is zero based. Also, we are indexing by
-// unicode grapheme's, which is a &quot;printable&quot; character.
+// unicode graphemes, which is a &quot;printable character&quot;.
 chacha::assert_eq(s[len - 1], &quot;💥&quot;);
 chacha::assert_eq(s[len - 2], &quot;🎉&quot;);
 chacha::assert_eq(s[len - 9], &quot; &quot;);
+
+// index into a string with a range.
+print(&quot;{0}{1}\n&quot;.format(s[0..5], s[len - 3])); // Hello!
+
+// Strings also support substitution via the `format` method.
+// The string contains {?}, where ? is a number that corresponds to a positional
+// argument to the `format` method. Like most everything else in dwarf, the
+// arguments to the method are arbitrary expressions.
+print(&quot;The length of the string is {0}. {0} * {0} = {1}\n&quot;.format(len, len * len));
+
+let answer = 42;
+let question = &quot;Huh?&quot;;
+let msg = &quot;The answer to life, the universe, and everything is {1}. {0} Really, {1}\n&quot;;
+print(msg.format(question, answer));
+<span class="boring">}</span></code></pre></pre>
+<h2 id="vector--list"><a class="header" href="#vector--list">Vector / List <a name="a004"></a></a></h2>
+<p>The vector type is esentially a wrapper for Rust's <code>Vec</code> type.
+That is to say that it is a growable array.</p>
+<p>At this time it's not possible to name the type of this, which is why there's a slash in the heading.
+In order to name this type dwarf would need to first support generics.
+This is likely to happen in the near future.</p>
+<pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">#fn main() {
+</span>// 🚧 I need some sort of example. What do I want to do with these? There are
+// all sorts of iterator functions that we could surface, but I'd pretty much
+// need closures to do that.
+let c = [1, 2, 3, 4, 5];
+
+let func = fn (x: int) -&gt; int {
+    return x * x;
+};
+
+print(func());
+
 <span class="boring">}</span></code></pre></pre>
 
                     </main>
@@ -205,22 +239,6 @@ chacha::assert_eq(s[len - 9], &quot; &quot;);
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 

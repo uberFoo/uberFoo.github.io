@@ -171,7 +171,7 @@ A statement that ends in a semi-colon has the empty value:</p>
     42
 }</code></pre></pre>
 <blockquote>
-<p>Expressions</p>
+<p><strong>Expressions</strong></p>
 <p>There will be a lot more to say about expressions later.
 For now just know that basically everything in dwarf is an expression.</p>
 </blockquote>
@@ -190,8 +190,19 @@ You use the name to refer to the variable elsewhere in the function:</p>
     let a = 42;
     print(a)
 }</code></pre></pre>
+<p>Getting back to functions, functions take inputs, do something with them, and return an output.
+The following code defines a function that takes an integer, does some computation, and returns a string.</p>
+<pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">#fn main() {
+</span>fn foo(a: int) -&gt; string {
+    let b = a * 2;
+//    &quot;The value of b is &quot; + b as string
+    &quot;The value of b is {1}. This is here just to confuse you {0}&quot;.format(&quot;hahahah!&quot;, b)
+}
+
+print(foo(42) + &quot;\n&quot;);
+<span class="boring">}</span></code></pre></pre>
 <blockquote>
-<p>Advanced Statements</p>
+<p><strong>Advanced Statements</strong></p>
 <p>There is a third type of statement, called an <a name="a008"></a>item statement.
 It's useful for defining <a name="a009"></a>structs and <a name="a010"></a>functions inside of a <a name="a011"></a>block expression.
 Below is an example of both:</p>
@@ -229,7 +240,7 @@ The following is an example of a conditional expression:</p>
     print(c);
 }</code></pre></pre>
 <blockquote>
-<p>Numeric Type Casting</p>
+<p><strong>Numeric Type Casting</strong></p>
 <p>There are some subtleties to conditional expressions with regard to <a name="a016"></a>type conversion.
 In the example below if we let <a name="a017"></a>ChhCha do the conversion for us it will convert the <a name="a018"></a><code>int</code> to a <a name="a019"></a><code>float</code>.
 The first comparison turns out as expected.</p>
@@ -263,13 +274,34 @@ fn main() {
     print(c);
 }</code></pre></pre>
 <blockquote>
-<p>Expression Magic</p>
+<p><strong>Expression Magic</strong></p>
 <p>Having everything as an expression pays great dividends.
 In the example above notice how we assign <code>c</code> to the result of the <a name="a022"></a><code>if</code> expression.
-<code>if</code> actually has a value, which is the value of it's evaluation.</p>
+<code>if</code> actually has a value, which is the value of it's evaluation.
+It's expressions all the way down. 🥁</p>
 </blockquote>
-<p>Notice that we left the semi-colon off of the print statement, and it still printed <code>()</code>.
-That is because the print expression has the empty value.</p>
+<pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">#fn main() {
+</span>//macro_rules! println {
+//    () =&gt; {
+//        print(&quot;\n&quot;);
+//    },
+//    ($arg:expr) =&gt; {
+//        print($arg as string + &quot;\n&quot;);
+//    },
+//    ($fmt:literal, $($arg:expr),*) =&gt; {
+//        print($fmt.format($($arg),*) + &quot;\n&quot;);
+//    }
+//}
+
+//printtln!();
+print(&quot;\n&quot;);
+//println!(&quot;Hello, world!&quot;);
+print(&quot;Hello, world!&quot; as string + &quot;\n&quot;);
+//println!(&quot;The answer is {0}, what's the {1}&quot;, 42, &quot;question?&quot;);
+print(&quot;The answer is {0}, what's the {1}&quot;.format(42, &quot;question?&quot;) + &quot;\n&quot;);
+//println!(42);
+print(42 as string + &quot;\n&quot;);
+<span class="boring">}</span></code></pre></pre>
 <h2 id="golden-nuggets-"><a class="header" href="#golden-nuggets-">Golden Nuggets ⭐️🌟✨</a></h2>
 <ol start="0">
 <li>
@@ -327,22 +359,6 @@ This is super powerful, and allows for some really cool things.</li>
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 
