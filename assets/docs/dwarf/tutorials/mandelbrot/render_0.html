@@ -211,8 +211,10 @@ fn escape_time(c: Complex, limit: int) -&gt; Option&lt;int&gt; {
     // debugger;
     let z = Complex::zero();
     for i in 1..limit {
-        ComplexEx::square(z);
-        ComplexEx::add(z, c);
+        z = Complex::square(z);
+        z = Complex::add(z, c);
+//        ComplexEx::square(z);
+//        ComplexEx::add(z, c);
         let foo = ComplexEx::norm_squared(z);
         if foo &gt; 4.0 {
             return i;
@@ -222,10 +224,7 @@ fn escape_time(c: Complex, limit: int) -&gt; Option&lt;int&gt; {
 }
 
 fn main() -&gt; Complex {
-    let ty = chacha::typeof(&quot;mandelbrot&quot;);
-    print(&quot;Type: &quot; + ty + &quot;\n&quot;);
-    let time = chacha::time(plot);
-    print(&quot;Total time: &quot; + time as string + &quot;\n&quot;);
+    print(&quot;Total time: {0}s\n&quot;.format(chacha::time(plot)));
 }
 
 fn plot() -&gt; Complex {
@@ -233,21 +232,12 @@ fn plot() -&gt; Complex {
     let height = 10;
     let upper_left = Complex { re: -2.5, im: 1.0 };
     let lower_right = Complex { re: 2.0, im: -1.0 };
-    // for t in 0..255 {
         let t = 50;
         for row in 0..height {
-        // OMG, this is an ugly hack, and yet it's so badass. If it had worked. 😢
-        // ChaCha::spawn(do_column, [row, width, height, upper_left, lower_right]);
-        // if row &gt; 1 {
-        // debugger;
-        // }
             do_column(t, row, width, height, upper_left, lower_right);
         }
-    // This is busted too.
-    // print(chacha::eps() + &quot;\n&quot;);
-    // }
-    print(chacha::eps());
-    print(&quot;\n&quot;);
+
+    print(&quot;{0}\n&quot;.format(chacha::eps()));
 }
 
 fn do_column(time: int, row: int, width: int, height: int, upper_left: Complex, lower_right: Complex) {
@@ -294,6 +284,9 @@ fn do_column(time: int, row: int, width: int, height: int, upper_left: Complex, 
 
 
 
+        <script>
+            window.playground_line_numbers = true;
+        </script>
 
         <script>
             window.playground_copyable = true;

@@ -216,6 +216,16 @@ Running as a lambda, it's even not faster... er, slower. 😎</p>
 <p>Thanks for reading thus far!
 This section is a walkthrough of the language.
 It is designed to provide information in an order useful to someone new to programming.</p>
+<h2 id="a-quick-program"><a class="header" href="#a-quick-program">A Quick Program</a></h2>
+<p>This will be a motivating example for the rest of the section:</p>
+<pre><pre class="tunnel"><code class="language-dwarf">fn print_number(n: int) {
+    print(&quot;the number is {0}\n&quot;.format(n));
+}
+
+fn main() {
+    let a = 42;
+    print_number(a);
+}</code></pre></pre>
 <h2 id="functions-and-statements"><a class="header" href="#functions-and-statements">Functions and Statements</a></h2>
 <p>Let's start with <a name="a001"></a>functions and <a name="a002"></a>statements.
 Functions are composed of statements between curly braces.
@@ -229,7 +239,7 @@ A statement that ends in a semi-colon has the empty value:</p>
     print(&quot;&quot;);
 }</code></pre></pre>
 <p>On the other hand, a statement that does not terminate in a semi-colon has the value of it's expression:</p>
-<pre><pre class="tunnel"><code class="language-dwarf">fn main() {
+<pre><pre class="tunnel"><code class="language-dwarf">fn main() -&gt; int {
     42
 }</code></pre></pre>
 <blockquote>
@@ -250,18 +260,19 @@ The storage location is called a <a name="a007"></a>variable, and has a name.
 You use the name to refer to the variable elsewhere in the function:</p>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
     let a = 42;
-    print(a)
+    print(a);
 }</code></pre></pre>
 <p>Getting back to functions, functions take inputs, do something with them, and return an output.
 The following code defines a function that takes an integer, does some computation, and returns a string.</p>
 <pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">#fn main() {
 </span>fn foo(a: int) -&gt; string {
     let b = a * 2;
-//    &quot;The value of b is &quot; + b as string
-    &quot;The value of b is {1}. This is here just to confuse you {0}&quot;.format(&quot;hahahah!&quot;, b)
+    // 🚧 This should not need a cast.
+    &quot;The value of b is {1}. This is here just to confuse you, {0}&quot;.format(&quot;hah!&quot;, b) as string
 }
 
-print(foo(42) + &quot;\n&quot;);
+// 🚧 This should not need a cast.
+print(foo(42) as string + &quot;\n&quot;);
 <span class="boring">}</span></code></pre></pre>
 <blockquote>
 <p><strong>Advanced Statements</strong></p>
@@ -297,48 +308,23 @@ The type of the conditional expression is the type of the then and else expressi
 The following is an example of a conditional expression:</p>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
     let a = 42;
-    let b = 3.14;
+    let b = 69;
     let c = if a &gt; b { a } else { b };
     print(c);
 }</code></pre></pre>
-<blockquote>
-<p><strong>Numeric Type Casting</strong></p>
-<p>There are some subtleties to conditional expressions with regard to <a name="a016"></a>type conversion.
-In the example below if we let <a name="a017"></a>ChhCha do the conversion for us it will convert the <a name="a018"></a><code>int</code> to a <a name="a019"></a><code>float</code>.
-The first comparison turns out as expected.</p>
+<p>There are all the usual <a name="a016"></a>comparison operators: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>:</p>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
-    let a = 3;
-    let b = 3.14;
-    let c = if a &gt;= b  { a } else { b }; // c == 3.14
-    print(c as string + &quot;\n&quot;);
-    let c = if a &gt;= b as int  { a } else { b }; // c == ?
-    print(c as string + &quot;\n&quot;);
-}</code></pre></pre>
-<p>In the second comparison we are casting <code>b</code> to an <code>int</code> with the <a name="a020"></a><code>as</code> expression.
-Note the difference.</p>
-</blockquote>
-<p>There are all the usual <a name="a021"></a>comparison operators: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>.
-Here are a few examples.</p>
-<pre><pre class="tunnel"><code class="language-dwarf">fn main() {
-    let a = true;
-    if a != false {
-        print(&quot;a is true\n&quot;);
-    } else {
-        print(&quot;a is false\n&quot;);
-    }
-}</code></pre></pre>
-<pre><pre class="tunnel"><code class="language-dwarf">
-```dwarf
-fn main() {
-    let a = 42;
-    let b = 3.14;
-    let c = if a == b { a } else { b };
-    print(c);
+    chacha::assert_eq(42 == 42, true);
+    chacha::assert_eq(42 != 42, false);
+    chacha::assert_eq(42 &lt; 42, false);
+    chacha::assert_eq(42 &lt;= 42, true);
+    chacha::assert_eq(42 &gt; 42, false);
+    chacha::assert_eq(42 &gt;= 42, true);
 }</code></pre></pre>
 <blockquote>
 <p><strong>Expression Magic</strong></p>
 <p>Having everything as an expression pays great dividends.
-In the example above notice how we assign <code>c</code> to the result of the <a name="a022"></a><code>if</code> expression.
+In the example above notice how we assign <code>c</code> to the result of the <a name="a017"></a><code>if</code> expression.
 <code>if</code> actually has a value, which is the value of it's evaluation.
 It's expressions all the way down. 🥁</p>
 </blockquote>
@@ -367,7 +353,7 @@ print(42 as string + &quot;\n&quot;);
 <h2 id="golden-nuggets-"><a class="header" href="#golden-nuggets-">Golden Nuggets ⭐️🌟✨</a></h2>
 <ol start="0">
 <li>
-<p>The interpreter is called <a name="a023"></a>ChaCha, but the binary is called <code>dwarf</code>.
+<p>The interpreter is called <a name="a018"></a>ChaCha, but the binary is called <code>dwarf</code>.
 Go figure.</p>
 </li>
 <li>
@@ -375,16 +361,16 @@ Go figure.</p>
 None of the tooling cares what you name them.</p>
 </li>
 <li>
-<p>The interpreter looks for a <a name="a024"></a><code>main</code> function, where it will begin execution.</p>
+<p>The interpreter looks for a <a name="a019"></a><code>main</code> function, where it will begin execution.</p>
 </li>
 </ol>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
     print(&quot;Hello, world!\n&quot;);
 }</code></pre></pre>
-<p>Passing <a name="a025"></a>command line arguments to main from the interpreter is <a href="./chacha.html#args">supported</a>.</p>
+<p>Passing <a name="a020"></a>command line arguments to main from the interpreter is <a href="./chacha.html#args">supported</a>.</p>
 <ol start="0">
-<li>In dwarf, just about everything is an <a name="a026"></a>expression.
-The only thing that is not an expression is a <a name="a027"></a><code>let</code> statement.
+<li>In dwarf, just about everything is an <a name="a021"></a>expression.
+The only thing that is not an expression is a <a name="a022"></a><code>let</code> statement.
 That's not true.
 Items inside blocks are also statements.
 So that's only two things that I can think of.
@@ -583,8 +569,10 @@ fn escape_time(c: Complex, limit: int) -&gt; Option&lt;int&gt; {
     // debugger;
     let z = Complex::zero();
     for i in 1..limit {
-        ComplexEx::square(z);
-        ComplexEx::add(z, c);
+        z = Complex::square(z);
+        z = Complex::add(z, c);
+//        ComplexEx::square(z);
+//        ComplexEx::add(z, c);
         let foo = ComplexEx::norm_squared(z);
         if foo &gt; 4.0 {
             return i;
@@ -594,10 +582,7 @@ fn escape_time(c: Complex, limit: int) -&gt; Option&lt;int&gt; {
 }
 
 fn main() -&gt; Complex {
-    let ty = chacha::typeof(&quot;mandelbrot&quot;);
-    print(&quot;Type: &quot; + ty + &quot;\n&quot;);
-    let time = chacha::time(plot);
-    print(&quot;Total time: &quot; + time as string + &quot;\n&quot;);
+    print(&quot;Total time: {0}s\n&quot;.format(chacha::time(plot)));
 }
 
 fn plot() -&gt; Complex {
@@ -605,21 +590,12 @@ fn plot() -&gt; Complex {
     let height = 10;
     let upper_left = Complex { re: -2.5, im: 1.0 };
     let lower_right = Complex { re: 2.0, im: -1.0 };
-    // for t in 0..255 {
         let t = 50;
         for row in 0..height {
-        // OMG, this is an ugly hack, and yet it's so badass. If it had worked. 😢
-        // ChaCha::spawn(do_column, [row, width, height, upper_left, lower_right]);
-        // if row &gt; 1 {
-        // debugger;
-        // }
             do_column(t, row, width, height, upper_left, lower_right);
         }
-    // This is busted too.
-    // print(chacha::eps() + &quot;\n&quot;);
-    // }
-    print(chacha::eps());
-    print(&quot;\n&quot;);
+
+    print(&quot;{0}\n&quot;.format(chacha::eps()));
 }
 
 fn do_column(time: int, row: int, width: int, height: int, upper_left: Complex, lower_right: Complex) {
@@ -1013,39 +989,36 @@ In the latter case, you'll <em>then</em> be able to use a parser generator.</p>
 <p>So, I couldn't get the evil parser generator to pay attention to my needs.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="index"><a class="header" href="#index">Index</a></h1>
 <p><code>()</code>, <a href="overview.html#a003">1</a><br/>
-<code>as</code>, <a href="overview.html#a020">1</a><br/>
 block, <a href="overview.html#a005">1</a><br/>
 block expression, <a href="overview.html#a011">1</a><br/>
 bool, <a href="reference/expressions/binary.html#a003">1</a><br/>
-ChaCha, <a href="overview.html#a023">1</a>, <a href="tutorials/mandelbrot/complex.html#a006">2</a>, <a href="reference/expressions/binary.html#a004">3</a><br/>
-ChhCha, <a href="overview.html#a017">1</a><br/>
-command line arguments, <a href="overview.html#a025">1</a><br/>
-comparison operators, <a href="overview.html#a021">1</a><br/>
+ChaCha, <a href="overview.html#a018">1</a>, <a href="tutorials/mandelbrot/complex.html#a006">2</a>, <a href="reference/expressions/binary.html#a004">3</a><br/>
+command line arguments, <a href="overview.html#a020">1</a><br/>
+comparison operators, <a href="overview.html#a016">1</a><br/>
 Complex numbers, <a href="tutorials/mandelbrot/complex.html#a001">1</a><br/>
 condition, <a href="overview.html#a013">1</a><br/>
 conditional expression, <a href="overview.html#a012">1</a><br/>
 else expression, <a href="overview.html#a015">1</a><br/>
 empty, <a href="overview.html#a004">1</a><br/>
 equals, see <code>==</code><br/>
-expression, <a href="overview.html#a026">1</a>, <a href="reference/expressions.html#a003">2</a><br/>
+expression, <a href="overview.html#a021">1</a>, <a href="reference/expressions.html#a003">2</a><br/>
       <code>=</code>, <a href="reference/expressions.html#a002">1</a><br/>
       <code>==</code>, <a href="reference/expressions/binary.html#a001">1</a>, <a href="reference/expressions/binary.html#a002">2</a><br/>
-      <code>if</code>, <a href="overview.html#a022">1</a>, <a href="reference/expressions.html#a001">2</a><br/>
+      <code>if</code>, <a href="overview.html#a017">1</a>, <a href="reference/expressions.html#a001">2</a><br/>
       <code>print</code>, <a href="tutorials/mandelbrot.html#a003">1</a><br/>
       struct expression, <a href="tutorials/mandelbrot/complex.html#a005">1</a><br/>
 format, <a href="reference/built-in-types.html#a003">1</a><br/>
 fractal, <a href="tutorials/mandelbrot.html#a002">1</a><br/>
 function, <a href="overview.html#a001">1</a>, <a href="overview.html#a010">2</a><br/>
 Hello World, <a href="introduction.html#a001">1</a><br/>
-<code>int</code>, <a href="overview.html#a018">1</a><br/>
 item, <a href="overview.html#a008">1</a><br/>
-<code>main</code>, <a href="overview.html#a024">1</a><br/>
+<code>main</code>, <a href="overview.html#a019">1</a><br/>
 Mandelbrot set, <a href="tutorials/mandelbrot.html#a001">1</a><br/>
 Parser, <a href="hacker/arch/parser.html#a001">1</a><br/>
 statement, <a href="overview.html#a002">1</a>, <a href="reference/statements.html#a001">2</a><br/>
       Expression Statement, <a href="reference/statements.html#a004">1</a><br/>
       Item Statement, <a href="reference/statements.html#a006">1</a><br/>
-      <code>let</code>, <a href="overview.html#a006">1</a>, <a href="overview.html#a027">2</a>, <a href="reference/statements.html#a002">3</a>, <a href="reference/statements.html#a003">4</a><br/>
+      <code>let</code>, <a href="overview.html#a006">1</a>, <a href="overview.html#a022">2</a>, <a href="reference/statements.html#a002">3</a>, <a href="reference/statements.html#a003">4</a><br/>
       Let Statement, see <code>let</code><br/>
       Result Statement, <a href="reference/statements.html#a005">1</a><br/>
 static method, <a href="tutorials/mandelbrot/complex.html#a007">1</a><br/>
@@ -1054,9 +1027,8 @@ string, <a href="reference/built-in-types.html#a002">1</a>, <a href="chacha.html
 struct, <a href="overview.html#a009">1</a><br/>
 then expression, <a href="overview.html#a014">1</a><br/>
 tuple, <a href="tutorials/mandelbrot/complex.html#a002">1</a><br/>
-type conversion, <a href="overview.html#a016">1</a><br/>
 types, <a href="reference/built-in-types.html#a001">1</a><br/>
-      <code>float</code>, <a href="overview.html#a019">1</a>, <a href="tutorials/mandelbrot/complex.html#a003">2</a><br/>
+      <code>float</code>, <a href="tutorials/mandelbrot/complex.html#a003">1</a><br/>
 variable, <a href="overview.html#a007">1</a><br/>
 vector, <a href="reference/built-in-types.html#a004">1</a>, <a href="chacha.html#a001">2</a><br/></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="postface"><a class="header" href="#postface">Postface</a></h1>
@@ -1115,6 +1087,9 @@ Apparently the std sync stuff was recently updated.</p>
 
 
 
+        <script>
+            window.playground_line_numbers = true;
+        </script>
 
         <script>
             window.playground_copyable = true;
