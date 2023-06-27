@@ -10,10 +10,11 @@ function playground_text(playground, hidden = true) {
     if (window.ace && code_block.classList.contains("editable")) {
         let editor = window.ace.edit(code_block);
         editor.setOptions({
-            scrollbar: {
+            scrollBar: {
                 alwaiesVisible: true,
                 size: 10
-            }
+            },
+            showGutter: true,
         });
         return editor.getValue();
     } else if (hidden) {
@@ -24,7 +25,7 @@ function playground_text(playground, hidden = true) {
 }
 
 (function codeSnippets() {
-    function fetch_with_timeout(url, options, timeout = 12000) {
+    function fetch_with_timeout(url, options, timeout = 6000) {
         return Promise.race([
             fetch(url, options),
             new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), timeout))
@@ -61,7 +62,8 @@ function playground_text(playground, hidden = true) {
                     scrollbar: {
                         alwaiesVisible: true,
                         size: 10
-                    }
+                    },
+                    showGutter: true,
                 });
                 editor.addEventListener("change", function (e) {
                     update_play_button(playground_block, playground_crates);
@@ -177,7 +179,9 @@ function playground_text(playground, hidden = true) {
 
         result_block.innerText = "Running...";
 
-        fetch_with_timeout("https://6n5af6c479.execute-api.us-west-2.amazonaws.com/run_dwarf", {
+        // fetch_with_timeout("http://localhost:9000", {
+        fetch_with_timeout("https://azibpj3knmu23fxtt35k54dqle0npxgp.lambda-url.us-west-2.on.aws", {
+            // fetch_with_timeout("https://6n5af6c479.execute-api.us-west-2.amazonaws.com/run_dwarf", {
             headers: {
                 'Content-Type': "text/plain",
             },
@@ -331,7 +335,8 @@ function playground_text(playground, hidden = true) {
                     scrollBar: {
                         alwaiesVisible: true,
                         size: 10
-                    }
+                    },
+                    showGutter: true,
                 });
                 editor.setValue(editor.originalCode);
                 editor.clearSelection();
@@ -385,7 +390,8 @@ function playground_text(playground, hidden = true) {
                     scrollbar: {
                         alwaiesVisible: true,
                         size: 10
-                    }
+                    },
+                    showGutter: true,
                 });
                 editor.setValue(editor.originalCode);
                 editor.clearSelection();

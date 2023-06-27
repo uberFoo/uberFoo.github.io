@@ -12,8 +12,9 @@ window.editors = [];
         editor.setOptions({
             scrollbar: {
                 size: "10px",
-                horizontal: "hidden",
-                vertical: "hidden",
+                // horizontal: "hidden",
+                // vertical: "hidden",
+                alwaysVisible: true
             },
             highlightActiveLine: false,
             showPrintMargin: false,
