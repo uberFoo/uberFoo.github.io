@@ -267,12 +267,10 @@ The following code defines a function that takes an integer, does some computati
 <pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">#fn main() {
 </span>fn foo(a: int) -&gt; string {
     let b = a * 2;
-    // 🚧 This should not need a cast.
-    &quot;The value of b is {1}. This is here just to confuse you, {0}&quot;.format(&quot;hah!&quot;, b) as string
+    &quot;The value of b is {1}. This is here just to confuse you, {0}&quot;.format(&quot;hah!&quot;, b)
 }
 
-// 🚧 This should not need a cast.
-print(foo(42) as string + &quot;\n&quot;);
+print(foo(42) + &quot;\n&quot;);
 <span class="boring">}</span></code></pre></pre>
 <blockquote>
 <p><strong>Advanced Statements</strong></p>
@@ -312,7 +310,14 @@ The following is an example of a conditional expression:</p>
     let c = if a &gt; b { a } else { b };
     print(c);
 }</code></pre></pre>
-<p>There are all the usual <a name="a016"></a>comparison operators: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>:</p>
+<blockquote>
+<p><strong>Expression Magic</strong></p>
+<p>Having everything as an expression pays great dividends.
+In the example above notice how we assign <code>c</code> to the result of the <a name="a016"></a><code>if</code> expression.
+<code>if</code> actually has a value, which is the value of it's evaluation.
+It's expressions all the way down. 🥁</p>
+</blockquote>
+<p>There are all the usual <a name="a017"></a>comparison operators: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>:</p>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
     chacha::assert_eq(42 == 42, true);
     chacha::assert_eq(42 != 42, false);
@@ -321,13 +326,6 @@ The following is an example of a conditional expression:</p>
     chacha::assert_eq(42 &gt; 42, false);
     chacha::assert_eq(42 &gt;= 42, true);
 }</code></pre></pre>
-<blockquote>
-<p><strong>Expression Magic</strong></p>
-<p>Having everything as an expression pays great dividends.
-In the example above notice how we assign <code>c</code> to the result of the <a name="a017"></a><code>if</code> expression.
-<code>if</code> actually has a value, which is the value of it's evaluation.
-It's expressions all the way down. 🥁</p>
-</blockquote>
 <pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">#fn main() {
 </span>//macro_rules! println {
 //    () =&gt; {
@@ -994,7 +992,7 @@ block expression, <a href="overview.html#a011">1</a><br/>
 bool, <a href="reference/expressions/binary.html#a003">1</a><br/>
 ChaCha, <a href="overview.html#a018">1</a>, <a href="tutorials/mandelbrot/complex.html#a006">2</a>, <a href="reference/expressions/binary.html#a004">3</a><br/>
 command line arguments, <a href="overview.html#a020">1</a><br/>
-comparison operators, <a href="overview.html#a016">1</a><br/>
+comparison operators, <a href="overview.html#a017">1</a><br/>
 Complex numbers, <a href="tutorials/mandelbrot/complex.html#a001">1</a><br/>
 condition, <a href="overview.html#a013">1</a><br/>
 conditional expression, <a href="overview.html#a012">1</a><br/>
@@ -1004,7 +1002,7 @@ equals, see <code>==</code><br/>
 expression, <a href="overview.html#a021">1</a>, <a href="reference/expressions.html#a003">2</a><br/>
       <code>=</code>, <a href="reference/expressions.html#a002">1</a><br/>
       <code>==</code>, <a href="reference/expressions/binary.html#a001">1</a>, <a href="reference/expressions/binary.html#a002">2</a><br/>
-      <code>if</code>, <a href="overview.html#a017">1</a>, <a href="reference/expressions.html#a001">2</a><br/>
+      <code>if</code>, <a href="overview.html#a016">1</a>, <a href="reference/expressions.html#a001">2</a><br/>
       <code>print</code>, <a href="tutorials/mandelbrot.html#a003">1</a><br/>
       struct expression, <a href="tutorials/mandelbrot/complex.html#a005">1</a><br/>
 format, <a href="reference/built-in-types.html#a003">1</a><br/>
@@ -1023,8 +1021,8 @@ statement, <a href="overview.html#a002">1</a>, <a href="reference/statements.htm
       Result Statement, <a href="reference/statements.html#a005">1</a><br/>
 static method, <a href="tutorials/mandelbrot/complex.html#a007">1</a><br/>
 string, <a href="reference/built-in-types.html#a002">1</a>, <a href="chacha.html#a002">2</a><br/>
-<code>struct</code>, <a href="tutorials/mandelbrot/complex.html#a004">1</a><br/>
 struct, <a href="overview.html#a009">1</a><br/>
+<code>struct</code>, <a href="tutorials/mandelbrot/complex.html#a004">1</a><br/>
 then expression, <a href="overview.html#a014">1</a><br/>
 tuple, <a href="tutorials/mandelbrot/complex.html#a002">1</a><br/>
 types, <a href="reference/built-in-types.html#a001">1</a><br/>

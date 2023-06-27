@@ -205,12 +205,10 @@ The following code defines a function that takes an integer, does some computati
 <pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">#fn main() {
 </span>fn foo(a: int) -&gt; string {
     let b = a * 2;
-    // 🚧 This should not need a cast.
-    &quot;The value of b is {1}. This is here just to confuse you, {0}&quot;.format(&quot;hah!&quot;, b) as string
+    &quot;The value of b is {1}. This is here just to confuse you, {0}&quot;.format(&quot;hah!&quot;, b)
 }
 
-// 🚧 This should not need a cast.
-print(foo(42) as string + &quot;\n&quot;);
+print(foo(42) + &quot;\n&quot;);
 <span class="boring">}</span></code></pre></pre>
 <blockquote>
 <p><strong>Advanced Statements</strong></p>
@@ -250,7 +248,14 @@ The following is an example of a conditional expression:</p>
     let c = if a &gt; b { a } else { b };
     print(c);
 }</code></pre></pre>
-<p>There are all the usual <a name="a016"></a>comparison operators: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>:</p>
+<blockquote>
+<p><strong>Expression Magic</strong></p>
+<p>Having everything as an expression pays great dividends.
+In the example above notice how we assign <code>c</code> to the result of the <a name="a016"></a><code>if</code> expression.
+<code>if</code> actually has a value, which is the value of it's evaluation.
+It's expressions all the way down. 🥁</p>
+</blockquote>
+<p>There are all the usual <a name="a017"></a>comparison operators: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>:</p>
 <pre><pre class="tunnel"><code class="language-dwarf">fn main() {
     chacha::assert_eq(42 == 42, true);
     chacha::assert_eq(42 != 42, false);
@@ -259,13 +264,6 @@ The following is an example of a conditional expression:</p>
     chacha::assert_eq(42 &gt; 42, false);
     chacha::assert_eq(42 &gt;= 42, true);
 }</code></pre></pre>
-<blockquote>
-<p><strong>Expression Magic</strong></p>
-<p>Having everything as an expression pays great dividends.
-In the example above notice how we assign <code>c</code> to the result of the <a name="a017"></a><code>if</code> expression.
-<code>if</code> actually has a value, which is the value of it's evaluation.
-It's expressions all the way down. 🥁</p>
-</blockquote>
 <pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">#fn main() {
 </span>//macro_rules! println {
 //    () =&gt; {
