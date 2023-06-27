@@ -180,8 +180,8 @@ function playground_text(playground, hidden = true) {
         result_block.innerText = "Running...";
 
         // fetch_with_timeout("http://localhost:9000", {
-        fetch_with_timeout("https://azibpj3knmu23fxtt35k54dqle0npxgp.lambda-url.us-west-2.on.aws", {
-            // fetch_with_timeout("https://6n5af6c479.execute-api.us-west-2.amazonaws.com/run_dwarf", {
+        // fetch_with_timeout("https://azibpj3knmu23fxtt35k54dqle0npxgp.lambda-url.us-west-2.on.aws", {
+        fetch_with_timeout("https://6n5af6c479.execute-api.us-west-2.amazonaws.com/run_dwarf", {
             headers: {
                 'Content-Type': "text/plain",
             },
