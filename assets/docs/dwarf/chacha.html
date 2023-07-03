@@ -163,7 +163,7 @@ Arguments:
   [ARGS]...
           Dwarf main arguments
 
-          These argumnets are passed on to the dwarf `main` function.
+          These arguments are passed on to the dwarf `main` function.
 
 Options:
   -d, --dap
@@ -197,19 +197,37 @@ I might get to it before release.</p>
 <h2 id="typeof"><a class="header" href="#typeof">typeof</a></h2>
 <p>This is exactly what it sounds like.
 Pass a value, and see what type it is:</p>
-<pre><pre class="tunnel"><code class="language-dwarf  editable">fn main() {
-    print(chacha::typeof(42));
-    print(chacha::typeof(42.0));
-    print(chacha::typeof(&quot;42&quot;));
-    print(chacha::typeof(true));
-    print(chacha::typeof(false));
-    print(chacha::typeof({}));
-    print(chacha::typeof([0, 1, 2, 3]));
-    print(chacha::typeof([&quot;0&quot;, &quot;1&quot;, &quot;2&quot;, &quot;3&quot;]));
-    print(chacha::typeof(0..100));
-//    print(chacha::typeof(()) );
-//    print(chacha::typeof({42, 42.0, &quot;42&quot;, true, false}));
-}</code></pre></pre>
+<pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">#fn main() {
+</span>print(&quot;42's type: {0}\n&quot;.format(chacha::typeof(42)));
+print(&quot;42.0's type: {0}\n&quot;.format(chacha::typeof(42.0)));
+print(&quot;true's type: {0}\n&quot;.format(chacha::typeof(true)));
+print(&quot;false's type: {0}\n&quot;.format(chacha::typeof(false)));
+print(&quot;[0, 1, 2, 3]'s type: {0}\n&quot;.format(chacha::typeof([0, 1, 2, 3])));
+print(&quot;0..100's type: {0}\n&quot;.format(chacha::typeof(0..100)));
+<span class="boring">}</span></code></pre></pre>
+<pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">#fn main() {
+</span><span class="boring">}</span></code></pre></pre>
+<pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">#fn main() {
+</span><span class="boring">struct Foo {}
+</span>//print(&quot;Foo\{\}'s type: {0}\n&quot;.format(chacha::typeof(Foo{})));
+print(&quot;{0}\n&quot;.format(chacha::typeof({})));
+print(&quot;{0}\n&quot;.format(chacha::typeof([&quot;0&quot;, &quot;1&quot;, &quot;2&quot;, &quot;3&quot;])));
+print(&quot;\&quot;42\&quot;'s type: {0}\n&quot;.format(chacha::typeof(&quot;42&quot;)));
+// print(chacha::typeof(()) );
+<span class="boring">}</span></code></pre></pre>
+<pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">#fn main() {
+</span><span class="boring">struct Complex {
+</span><span class="boring">    re: float,
+</span><span class="boring">    im: float,
+</span><span class="boring">}
+</span>
+impl Complex {
+    fn square(self) {
+        self.re = self.re * self.re - self.im * self.im;
+        self.im = 2.0 * self.re * self.im;
+    }
+}
+<span class="boring">}</span></code></pre></pre>
 
                     </main>
 

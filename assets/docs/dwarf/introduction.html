@@ -159,7 +159,7 @@
 This brief introduction will outline the status of dwarf, and set the stage for what's to come.</p>
 <h2 id="hello-world"><a class="header" href="#hello-world"><a name="a001"></a>Hello World</a></h2>
 <p>Every language deserves one, so let's get it out of the way.
-Go ahead and click the run button in the top right corner.</p>
+Go ahead and click the run button in the top right corner of the code-box below.</p>
 <pre><pre class="tunnel"><code class="language-dwarf  editable">fn main() {
     let name = &quot;World&quot;;
     print(&quot;Hello &quot; + name + &quot;!&quot;);
@@ -168,16 +168,14 @@ Go ahead and click the run button in the top right corner.</p>
 I know you want to. 😀</p>
 <h2 id="a-brief-story-of-dwarf"><a class="header" href="#a-brief-story-of-dwarf">A brief story of dwarf</a></h2>
 <blockquote>
-<p><strong>Caveat Emptor / Note Bene, etcetera</strong></p>
-<p>The dwarf (the language and it's implementation) is very much a work in progress.
-It's maybe at an alpha stage, and certainly not beta.
-I don't honestly see very many breaking changes, however I won't promise anything until 1.0.</p>
+<p><strong>Caveat Emptor, Note Bene, etcetera</strong></p>
+<p><a name="a002"></a>dwarf (the language and it's implementation, <a name="a003"></a>ChaCha) is very much a work in progress.
+The language itself is still evolving, and the implementation is still very much in flux.
+I don't honestly see very many breaking changes moving forward, however I can't promise anything until 1.0.</p>
 </blockquote>
-<p>Dwarf started life as a DSLfor another project.
-I've had so much fun with it, I want to see if anyone else might find it generally useful.
-Not that it's quite ready for production.
-This is still very much alpha software.</p>
-<p>Because dwarf is a DSL, the focus was not language design.
+<p>Dwarf started life as a DSL for another project.
+I've had so much fun with it, I want to see if anyone else might find it generally useful.</p>
+<p>Because dwarf was intended as a DSL, the focus was not language design.
 I'm pretty sure if I had allowed myself that freedom that I'd still be working on it.
 And it would be weird...</p>
 <p>So I based it on Rust.
@@ -194,7 +192,7 @@ Other's, and those of my needs.</p>
 <p>Right now dwarf is also very slow.
 (He's still working on his tunneling gear apparently.)
 It's slow because it's interpreted, and the foundations of the interpreter are not really built for speed.
-That said, there is a VM currently in the works, and it's alreayd integrated with the interpreter to speed things up.</p>
+That said, there is a VM currently in the works, and it's already integrated with the interpreter to speed some things up.</p>
 <p>Along the way I wrote a &quot;debugger&quot; and a REPL.
 The debugger is very basic.
 You have to set debugger statements in your code to get it to stop — there is no way to set a breakpoint form the tool.
