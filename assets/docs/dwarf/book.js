@@ -27,7 +27,7 @@ function playground_text(playground, hidden = true) {
 
 (function codeSnippets() {
     // Timeout of five minutes
-    function fetch_with_timeout(url, options, timeout = 300000) {
+    function fetch_with_timeout(url, options, timeout = 30000) {
         return Promise.race([
             fetch(url, options),
             new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), timeout))
