@@ -10,10 +10,11 @@ function playground_text(playground, hidden = true) {
     if (window.ace && code_block.classList.contains("editable")) {
         let editor = window.ace.edit(code_block);
         editor.setOptions({
-            scrollBar: {
-                alwaiesVisible: true,
-                size: 10
-            },
+            // scrollbar: {
+            // alwaysVisible: true,
+            // size: 10
+            // },
+            vScrollBarAlwaysVisible: true,
             showGutter: true,
         });
         return editor.getValue();
@@ -25,7 +26,8 @@ function playground_text(playground, hidden = true) {
 }
 
 (function codeSnippets() {
-    function fetch_with_timeout(url, options, timeout = 6000) {
+    // Timeout of five minutes
+    function fetch_with_timeout(url, options, timeout = 300000) {
         return Promise.race([
             fetch(url, options),
             new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), timeout))
@@ -59,10 +61,11 @@ function playground_text(playground, hidden = true) {
             if (code_block.classList.contains("editable")) {
                 let editor = window.ace.edit(code_block);
                 editor.setOptions({
-                    scrollbar: {
-                        alwaiesVisible: true,
-                        size: 10
-                    },
+                    // scrollBar: {
+                    //     alwaysVisible: true,
+                    //     size: 10
+                    // },
+                    hScrollBarAlwaysVisible: true,
                     showGutter: true,
                 });
                 editor.addEventListener("change", function (e) {
@@ -168,9 +171,7 @@ function playground_text(playground, hidden = true) {
         var result_block = code_block.querySelector(".result");
         if (!result_block) {
             result_block = document.createElement('code');
-            // result_block = document.createElement('div');
             result_block.className = 'result hljs language-bash';
-            // result_block.className = 'result';
 
             code_block.append(result_block);
         }
@@ -180,8 +181,8 @@ function playground_text(playground, hidden = true) {
         result_block.innerText = "Running...";
 
         // fetch_with_timeout("http://localhost:9000", {
-        // fetch_with_timeout("https://azibpj3knmu23fxtt35k54dqle0npxgp.lambda-url.us-west-2.on.aws", {
         fetch_with_timeout("https://6n5af6c479.execute-api.us-west-2.amazonaws.com/run_dwarf", {
+            // fetch_with_timeout("https://azibpj3knmu23fxtt35k54dqle0npxgp.lambda-url.us-west-2.on.aws", {
             headers: {
                 'Content-Type': "text/plain",
             },
@@ -201,6 +202,37 @@ function playground_text(playground, hidden = true) {
                 }
             })
             .catch(error => result_block.innerText = "Playground Communication: " + error.message);
+
+        // try {
+        //     const response = await fetch_with_timeout("https://azibpj3knmu23fxtt35k54dqle0npxgp.lambda-url.us-west-2.on.aws", {
+        //         headers: {
+        //             'Content-Type': "text/plain",
+        //         },
+        //         method: 'POST',
+        //         mode: 'cors',
+        //         body: text
+        //     });
+
+        //     while (true) {
+        //         const body = await response.text();
+        //         console.log(body);
+        //         if (body.output && body.output.trim() === '') {
+        //             result_block.innerText = "No output";
+        //             result_block.classList.add("result-no-output");
+        //         } else {
+        //             result_block.innerHTML = body.output;
+        //             result_block.classList.remove("result-no-output");
+        //         }
+        //         const headers = response.headers;
+        //         const content_type = headers.get('content-type');
+        //         console.log(content_type);
+        //         if (content_type !== 'application/html') {
+        //             break;
+        //         }
+        //     }
+        // } catch (error) {
+        //     result_block.innerText = "Playground Communication: " + error.message;
+        // }
     }
 
     // Syntax highlighting Configuration
@@ -332,10 +364,11 @@ function playground_text(playground, hidden = true) {
             undoChangesButton.addEventListener('click', function () {
                 let editor = window.ace.edit(code_block);
                 editor.setOptions({
-                    scrollBar: {
-                        alwaiesVisible: true,
-                        size: 10
-                    },
+                    // scrollBar: {
+                    //     alwaiesVisible: true,
+                    //     size: 10
+                    // },
+                    hScrollBarAlwaysVisible: true,
                     showGutter: true,
                 });
                 editor.setValue(editor.originalCode);
@@ -387,10 +420,11 @@ function playground_text(playground, hidden = true) {
             undoChangesButton.addEventListener('click', function () {
                 let editor = window.ace.edit(code_block);
                 editor.setOptions({
-                    scrollbar: {
-                        alwaiesVisible: true,
-                        size: 10
-                    },
+                    // scrollbar: {
+                    //     alwaiesVisible: true,
+                    //     size: 10
+                    // },
+                    hScrollBarAlwaysVisible: true,
                     showGutter: true,
                 });
                 editor.setValue(editor.originalCode);

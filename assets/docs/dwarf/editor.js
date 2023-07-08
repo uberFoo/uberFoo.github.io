@@ -10,12 +10,13 @@ window.editors = [];
 
         let editor = ace.edit(editable);
         editor.setOptions({
-            scrollbar: {
-                size: "10px",
-                // horizontal: "hidden",
-                // vertical: "hidden",
-                alwaysVisible: true
-            },
+            // scrollbar: {
+            // size: "10px",
+            // horizontal: "hidden",
+            // vertical: "hidden",
+            // alwaysVisible: true
+            // },
+            hScrollBarAlwaysVisible: true,
             highlightActiveLine: false,
             showPrintMargin: false,
             showLineNumbers: display_line_numbers,
