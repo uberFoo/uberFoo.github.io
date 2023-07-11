@@ -154,7 +154,7 @@
 <p>dwarf contains a handful of primitive <a name="a001"></a>types.</p>
 <h2 id="string"><a class="header" href="#string">String <a name="a002"></a></a></h2>
 <p><a name="a003"></a></p>
-<p>The string type is esentially a wrapper for Rust's <code>String</code> type.
+<p>The string type is a wrapper for Rust's <code>String</code> type.
 That is to say that it is a proper unicode string, encoded as UTF-8.</p>
 <pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">#fn main() {
 </span>let s: string = &quot;Hello, world!🎉💥&quot;;
@@ -191,7 +191,7 @@ let msg = &quot;The answer to life, the universe, and everything is {1}. {0} Rea
 print(msg.format(question, answer));
 <span class="boring">}</span></code></pre></pre>
 <h2 id="vector--list"><a class="header" href="#vector--list">Vector / List <a name="a004"></a></a></h2>
-<p>The vector type is esentially a wrapper for Rust's <code>Vec</code> type.
+<p>The vector type is a wrapper for Rust's <code>Vec</code> type.
 That is to say that it is a growable array.</p>
 <p>At this time it's not possible to name the type of this, which is why there's a slash in the heading.
 In order to name this type dwarf would need to first support generics.
@@ -200,6 +200,7 @@ This is likely to happen in the near future.</p>
 </span>// 🚧 I need some sort of example. What do I want to do with these? There are
 // all sorts of iterator functions that we could surface, but I'd pretty much
 // need closures to do that.
+// And now we have closures! So I need to get to this.
 let c = [1, 2, 3, 4, 5];
 
 let func = fn (x: int) -&gt; int {

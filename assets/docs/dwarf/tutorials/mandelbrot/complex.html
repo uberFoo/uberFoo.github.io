@@ -172,7 +172,7 @@ Each field is separated from another by a comma.
 Trailing commas are just fine.</p>
 <p>In this specific case we have a <em>struct</em> called <code>Complex</code> that has two fields, each of type <em>float</em>.
 The first is called <code>re</code>, and the second, <code>im</code>.</p>
-<p>Initializiation of a <em>struct</em> is done by a <em><a name="a005"></a>struct expression</em>, just like Rust.
+<p>Initialization of a <em>struct</em> is done by a <em><a name="a005"></a>struct expression</em>, just like Rust.
 if you are unfamiliar, a struct expression looks like the definition, but with values in place of types.</p>
 <pre><pre class="tunnel"><code class="language-dwarf"><span class="boring">struct Complex {
 </span><span class="boring">   re: float,
@@ -187,7 +187,7 @@ if you are unfamiliar, a struct expression looks like the definition, but with v
     chacha::assert_eq(z.im, 4.56);
 }</code></pre></pre>
 <p>The last two lines are functions provided by the runtime <a name="a006"></a>ChaCha.
-<code>chach::assert_eq</code> tests it's arguments for equality, and throws an error if they are not.</p>
+<code>chacha::assert_eq</code> tests it's arguments for equality, and throws an error if they are not.</p>
 <h2 id="complex-methods"><a class="header" href="#complex-methods">Complex Methods</a></h2>
 <p>Having a type is a good start.
 We can now create Complex numbers</p>
