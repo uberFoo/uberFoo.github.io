@@ -1002,7 +1002,7 @@ These relationships are backed by &quot;referential attributes&quot; whose purpo
 In the case of <strong>Field</strong>, <strong>struct</strong> formalizes <strong>R3</strong> and <strong>type</strong> formalizes <strong>R4</strong>.</p>
 <p>The points worth reflecting upon are that <strong>Type</strong> is a generalization over all of the dwarf types.
 Also, <strong>Field</strong> and <strong>Generic</strong> both have relationships to <strong>Type</strong>. separate from <strong>R1</strong>.</p>
-<pre><code class="language-mermaid">classDiagram
+<pre class="mermaid">classDiagram
     Type &lt;|-- Generic : R1
     Type &lt;|-- Integer : R1
     Type &lt;|-- Struct : R1
@@ -1028,7 +1028,7 @@ Also, <strong>Field</strong> and <strong>Generic</strong> both have relationship
         *struct: R3_Struct
         *type: R4_Type
     }
-</code></pre>
+</pre>
 <p>There is a real model that is much more extensive that is used to generate the AST code.
 Below is the generated code for the actual <strong>Type</strong>, called <code>ValueType</code> in the code.</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
