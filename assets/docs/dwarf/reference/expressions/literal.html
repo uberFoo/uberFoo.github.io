@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -10,7 +10,7 @@
         
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="../../favicon.svg">
         <link rel="shortcut icon" href="../../favicon.png">
@@ -29,11 +29,12 @@
         <link rel="stylesheet" href="../../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../.././mdbook-admonish.css">
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
@@ -63,43 +64,72 @@
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
+            var body = document.querySelector('body');
             var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <img class="sidebar-logo" src="../../favicon.png">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../introduction.html">Introduction</a></li><li class="chapter-item expanded affix "><a href="../../overview.html">Language Walkthrough</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="../../tutorials/mandelbrot.html"><strong aria-hidden="true">1.</strong> Mandelbrot Set</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../tutorials/mandelbrot/complex.html"><strong aria-hidden="true">1.1.</strong> Coding a Complex Type</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.2.</strong> Mapping Points to Pixels</div></li><li class="chapter-item expanded "><a href="../../tutorials/mandelbrot/render_0.html"><strong aria-hidden="true">1.3.</strong> Rendering the Set</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.4.</strong> Speeding it up</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Python Bindings</div></li><li class="chapter-item expanded affix "><li class="part-title">Reference</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Dwarf Language Reference</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Items</div></li><li class="chapter-item expanded "><a href="../../reference/statements.html"><strong aria-hidden="true">3.2.</strong> Statements</a></li><li class="chapter-item expanded "><a href="../../reference/expressions.html"><strong aria-hidden="true">3.3.</strong> Expressions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../reference/expressions/literal.html" class="active"><strong aria-hidden="true">3.3.1.</strong> Literal Expressions</a></li><li class="chapter-item expanded "><a href="../../reference/expressions/unary.html"><strong aria-hidden="true">3.3.2.</strong> Unary Expressions</a></li><li class="chapter-item expanded "><a href="../../reference/expressions/binary.html"><strong aria-hidden="true">3.3.3.</strong> Binary Expressions</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.</strong> Types</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../reference/built-in-types.html"><strong aria-hidden="true">3.4.1.</strong> Built-in Types</a></li><li class="chapter-item expanded "><a href="../../reference/udts.html"><strong aria-hidden="true">3.4.2.</strong> User-defined Types</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> Inline Assembly</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.6.</strong> Object Oriented Features</div></li></ol></li><li class="chapter-item expanded "><a href="../../chacha.html"><strong aria-hidden="true">4.</strong> ChaCha Runtime Reference</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> The Future</div></li><li class="chapter-item expanded "><a href="../../hacker.html"><strong aria-hidden="true">6.</strong> For Hackers</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.1.</strong> Building</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.1.1.</strong> Tools</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.1.2.</strong> Benchmarks</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.2.</strong> Architecture</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../hacker/arch/parser.html"><strong aria-hidden="true">6.2.1.</strong> Parser</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.2.2.</strong> Compiler</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.2.3.</strong> Chacha</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.2.3.1.</strong> Interpreter</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.2.3.2.</strong> VM</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.2.4.</strong> The ObjectStore</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.</strong> Code Generation</div></li></ol></li><li class="chapter-item expanded "><a href="../../directory.html">Index</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../../preface.html">Postface</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../introduction.html">Introduction</a></li><li class="chapter-item expanded affix "><a href="../../overview.html">Language Walkthrough</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="../../tutorials/mandelbrot.html"><strong aria-hidden="true">1.</strong> Mandelbrot Set</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../tutorials/mandelbrot/complex.html"><strong aria-hidden="true">1.1.</strong> Coding a Complex Type</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.2.</strong> Mapping Points to Pixels</div></li><li class="chapter-item expanded "><a href="../../tutorials/mandelbrot/render_0.html"><strong aria-hidden="true">1.3.</strong> Rendering the Set</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.4.</strong> Speeding it up</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Python Bindings</div></li><li class="chapter-item expanded affix "><li class="part-title">Reference</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Dwarf Language Reference</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Items</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../reference/enums.html"><strong aria-hidden="true">3.1.1.</strong> Enumerations</a></li><li class="chapter-item expanded "><a href="../../reference/functions.html"><strong aria-hidden="true">3.1.2.</strong> Functions</a></li><li class="chapter-item expanded "><a href="../../reference/imports.html"><strong aria-hidden="true">3.1.3.</strong> Imports</a></li><li class="chapter-item expanded "><a href="../../reference/patterns.html"><strong aria-hidden="true">3.1.4.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="../../reference/structs.html"><strong aria-hidden="true">3.1.5.</strong> Structs</a></li></ol></li><li class="chapter-item expanded "><a href="../../reference/statements.html"><strong aria-hidden="true">3.2.</strong> Statements</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.3.</strong> Expressions</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../reference/expressions/literal.html" class="active"><strong aria-hidden="true">3.3.1.</strong> Literal Expressions</a></li><li class="chapter-item expanded "><a href="../../reference/expressions/unary.html"><strong aria-hidden="true">3.3.2.</strong> Unary Expressions</a></li><li class="chapter-item expanded "><a href="../../reference/expressions/binary.html"><strong aria-hidden="true">3.3.3.</strong> Binary Expressions</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.</strong> Types</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../reference/built-in-types.html"><strong aria-hidden="true">3.4.1.</strong> Built-in Types</a></li><li class="chapter-item expanded "><a href="../../reference/udts.html"><strong aria-hidden="true">3.4.2.</strong> User-defined Types</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> Inline Assembly</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.6.</strong> Object Oriented Features</div></li></ol></li><li class="chapter-item expanded "><a href="../../chacha.html"><strong aria-hidden="true">4.</strong> ChaCha Runtime Reference</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> The Future</div></li><li class="chapter-item expanded "><a href="../../hacker.html"><strong aria-hidden="true">6.</strong> For Hackers</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.1.</strong> Building</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.1.1.</strong> Tools</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.1.2.</strong> Benchmarks</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.2.</strong> Architecture</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../hacker/arch/parser.html"><strong aria-hidden="true">6.2.1.</strong> Parser</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.2.2.</strong> Compiler</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.2.3.</strong> Chacha</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../hacker/arch/chacha/async.html"><strong aria-hidden="true">6.2.3.1.</strong> Async Implementation</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.2.3.2.</strong> Interpreter</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.2.3.3.</strong> VM</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.2.4.</strong> The ObjectStore</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.</strong> Code Generation</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.4.</strong> Dwarf Language</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../hacker/dwarf/generics.html"><strong aria-hidden="true">6.4.1.</strong> Generic Types</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../directory.html">Index</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../../preface.html">Postface</a></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -156,11 +186,11 @@
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../../reference/expressions.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../reference/statements.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="../../reference/expressions/unary.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../../reference/expressions/unary.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -170,11 +200,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../../reference/expressions.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../../reference/statements.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="../../reference/expressions/unary.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../../reference/expressions/unary.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
@@ -206,6 +236,8 @@
         <script src="../../book.js"></script>
 
         <!-- Custom JS scripts -->
+        <script src="../../mermaid.min.js"></script>
+        <script src="../../mermaid-init.js"></script>
 
 
     </div>
