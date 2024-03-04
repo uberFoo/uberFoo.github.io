@@ -219,7 +219,7 @@ Javascript has a slight edge (~12%) over Python.
 By 1000 iterations Javascript is the clear winner.
 And that's around where Javascript finally budges from it's horizontal trek.
 To me this implies that node has a lot more startup overhead than either Python or dwarf.
-dwarf's time increases pretty quickly, which again implies very small overhead.
+dwarf's time increases pretty quickly, which also implies very small startup overhead.
 
 ## Conclusion
 
