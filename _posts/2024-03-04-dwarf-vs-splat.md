@@ -135,12 +135,12 @@ The exception being when there is only one task, and the work is above the start
 This is easy to see for one task doing 10 million iterations.
 This makes sense, given that Python is a lot faster than dwarf.
 
-> At a minimum, dwarf performa work 1.4 times faster than Python.*
+> At a minimum, dwarf performs work 1.4 times faster than Python.*
 
 Python starts up really slowly, so it's speed advantage only comes into play at 1 million iterations with *one* task, where it's got a 5% advantage.
 At 10 million iterations, Python is 5 times faster than dwarf.
 However, beyond one iteration, dwarf is up to 10 times faster.
-dwarf however acheives this with 12 cores, while Python runs on only one.
+dwarf however achieves this with 12 cores, while Python runs on only one.
 At the minimum, when a large enough amount of work is being done, dwarf is 1.4 times faster than Python.
 
 In both graphs it's interesting to see the symmetry across work and task count.
@@ -150,6 +150,7 @@ This is perhaps not surprising, given that work ⨉ task count is linear, and we
 
 For fib, I used the naive recursive implementation to burn some CPU cycles.
 Perhaps more importantly we gain an insight into how long it takes to call a function in each language.
+This is also a decent test of comparison and addition operations.
 
 #### Code
 
@@ -160,10 +161,7 @@ fn fib(n: int) -> int {
     if n <= 1 {
         n
     } else {
-        let a = fib(n - 1);
-        let b = fib(n - 2);
-        
-        a + b
+        fib(n - 1) + fib(n - 2);
     }
 }
 ```
@@ -175,12 +173,10 @@ def fib(n):
     if n <= 1:
         return n
     else:
-        a = fib(n-1)
-        b = fib(n-2)
-        return a + b
+        return fib(n-1) + fib(n-2)
 ```
 
-Javascript is no different. 
+Javascript is no different.
 
 ```javascript
 function fibonacci(n) {
@@ -188,19 +184,24 @@ function fibonacci(n) {
         return n;
     }
 
-    const fib1 = fibonacci(n - 1);
-    const fib2 = fibonacci(n - 2);
-
-    return fib1 + fib2;
+    return fibonacci(n - 1) + fibonacci(n - 2);
 ```
 
 #### Results
+
+The story is pretty much the same as far as JavaScript is concerned.
+It dominates Fibonacci running 13.3 times faster than Python and 11,6 times faster than dwarf.
+dwarf at 100 tasks is 1.2 times faster than Python.
 
 ##### dwarf vs JavaScript vs Python -- fib(28)
 
 ![dwarf vs. All: fib(28)](/assets/images/dwarf-vs/dwarf-v-all-fib-28.png)
 
 ##### dwarf vs JavaScript vs Python -- fib(17)
+
+This is exactly the same as above, but for calculating the 17th Fibonacci number.
+The results are generally similar to the 28th Fibonacci number.
+There is a larger gap between dwarf and Python, and a smaller gap with JavaScript.
 
 ![dwarf vs. All: fib(17)](/assets/images/dwarf-vs/dwarf-v-all-fib-17.png)
 
@@ -320,7 +321,7 @@ fn fib(n: int) -> int {
     } else {
         let a = fib(n - 1);
         let b = fib(n - 2);
-        
+
         a + b
     }
 }
@@ -354,9 +355,7 @@ def fib(n):
     if n <= 1:
         return n
     else:
-        a = fib(n-1)
-        b = fib(n-2)
-        return a + b
+        return fib(n-1) + fib(n-2)
 
 async def main():
     j = 28
@@ -379,10 +378,7 @@ function fibonacci(n) {
         return n;
     }
 
-    const fib1 = fibonacci(n - 1);
-    const fib2 = fibonacci(n - 2);
-
-    return fib1 + fib2;
+    return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
 async function runFibonacciFunctions(times) {
