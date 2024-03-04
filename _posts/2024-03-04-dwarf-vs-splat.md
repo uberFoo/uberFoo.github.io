@@ -43,7 +43,7 @@ Anyway, while Python and Javascript are single-threaded, dwarf is multi-threaded
 This means that if you have work that can be done concurrently, dwarf can have multiple cores working on it at the same time.
 
 > dwarf can be built with or without async support.
-> Async support is multi-threaded by necessity, since it's implemented in Rust, using Rust's async/await feature.
+> Async support is multi-threaded by necessity, since it's implemented in Rust, using Rust's async/.await feature.
 > With async support comes the ability to create tasks that run concurrently.
 > Each task is handed off to a thread pool, and the task is run on one of its threads.
 > This allows the fairly slow VM the ability to get more work done, or to get work done faster, depending on how you want to look at it.
@@ -52,7 +52,7 @@ This is how it's able to compete with Python.
 Alas, when it comes to JavaScript, there simply is no competition.
 
 For all the tests performed, I used Python 3.11.6 and node v21.5.0.
-All timing information wos obtained from running [hyperfine](https://github.com/sharkdp/hyperfine).
+All timing information was obtained by using [hyperfine](https://github.com/sharkdp/hyperfine).
 Tests were run on a 2023 MacBook Pro with an M2 Max with 12 Cores and 64GB of RAM.
 The OS was macOS Sonoma 14.2.1.
 
