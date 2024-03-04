@@ -232,6 +232,8 @@ The compiler still needs optimizations applied to it's output.
 The VM likely as not has a few tweaks that can be made.
 And for a two month old implementation, I'm quite pleased with the results.
 
+If you liked this post, and want to see more like it, please let me know by starring the [dwarf](https://www.github.com/uberFoo/dwarf) repository on GitHub.
+
 ## Full Program Source
 
 Below is the full source of the benchmarks.
