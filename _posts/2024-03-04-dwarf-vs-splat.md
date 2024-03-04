@@ -96,6 +96,7 @@ The charts contained herein, with one exception, have time as the y-axis and the
 I've conveniently made the iterations increase exponentially from one (radix 10).
 Each line corresponds to some amount of work being done, at some number of iterations.
 The exception, which will be apparent, uses a logarithmic scale for the y-axis (time).
+
 In all cases, lower is better.
 
 ##### dwarf vs. JavaScript
@@ -106,6 +107,7 @@ Ok -- first off is dwarf vs. JavaScript.
 
 As you can see, JavaScript confidently trounces dwarf.
 I think that the big takeaway is that dwarf is two orders of magnitude slower than JavaScript.
+
 JavaScript at 1 million iterations is still faster that dwarf at 1 hundred-thousand.
 There's one order of magnitude.
 The other one comes from dwarf using 12 cores to do the work.
@@ -114,7 +116,7 @@ Concretely, at the extreme amounts of work, JavaScript is 12 times faster than d
 And dwarf is running on 12 cores.
 Given that 12 ⨉ 12 is 144, dwarf is about 144 times slower than JavaScript.
 
-> It's may not be quite this bad.
+> It may not be quite this bad.
 >The test machine has 4 "efficiency" cores, which are presumably slower than the 8 "performance" cores.
 
 The time difference in JavaScript from 100,000 iterations to 1,000,000 is interesting.
@@ -130,18 +132,19 @@ This is a very different story from above.
 
 First, the most obvious thing is that dwarf is faster in nearly all cases.
 The exception being when there is only one task, and the work is above the startup threshold.
-This is easy to see for one task doing 10 mission iterations.
-This makes sense, givin that Python is a lot faster than dwarf.
+This is easy to see for one task doing 10 million iterations.
+This makes sense, given that Python is a lot faster than dwarf.
 
-> At a minimum, dwarf does work 1.4 times faster than Python.*
+> At a minimum, dwarf performa work 1.4 times faster than Python.*
 
-But Python starts up really slowly, so it's speed advantage only comes into play at 1 million iterations with *one* task, where it's got a 5% advantage.
+Python starts up really slowly, so it's speed advantage only comes into play at 1 million iterations with *one* task, where it's got a 5% advantage.
 At 10 million iterations, Python is 5 times faster than dwarf.
-However, beyond one iteration, dwarf is up to 10 times faster, with 12 cores, is faster than Python on one core.
-At the minimum, when the most work is being done, dwarf is 1.4 times faster than Python.
+However, beyond one iteration, dwarf is up to 10 times faster.
+dwarf however acheives this with 12 cores, while Python runs on only one.
+At the minimum, when a large enough amount of work is being done, dwarf is 1.4 times faster than Python.
 
 In both graphs it's interesting to see the symmetry across work and task count.
-It's not surprising, given that work ⨉ task count is linear, and we are increasing both axes by decades.
+This is perhaps not surprising, given that work ⨉ task count is linear, and we are increasing both axes by decades.
 
 ### Fibonacci
 
@@ -150,19 +153,22 @@ Perhaps more importantly we gain an insight into how long it takes to call a fun
 
 #### Code
 
-This is the dwarf implementation, it is not surprising.
+This is the dwarf implementation; it is not surprising.
 
 ```rust
 fn fib(n: int) -> int {
     if n <= 1 {
         n
     } else {
-        fib(n - 1) + fib(n - 2)
+        let a = fib(n - 1);
+        let b = fib(n - 2);
+        
+        a + b
     }
 }
 ```
 
-The same can be said about the Python algorithm implementation.
+The same can be said about Python's implementation.
 
 ```python
 def fib(n):
@@ -174,10 +180,7 @@ def fib(n):
         return a + b
 ```
 
-I'm not sure why there are consts in the JavaScript implementation.
-Copilot put them in there.
-If I remember correctly const in JavaScript is different from const in other languages.
-
+Javascript is no different. 
 
 ```javascript
 function fibonacci(n) {
@@ -210,12 +213,12 @@ This chart is the same data as the one above, but it's plotted on a log scale.
 This image does a good job illustrating the startup overhead of each language.
 Calculating the 17th Fibonacci number is a trivial task, and it's faster than the time it takes to compile and run the code.
 Clearly dwarf starts up much more quickly than either other language.
-Javascript has a slight edge over Python.
+Javascript has a slight edge (~12%) over Python.
 
 By 1000 iterations Javascript is the clear winner.
 And that's around where Javascript finally budges from it's horizontal trek.
-To me this implies that there is a lot more startup overhead than either Python or dwarf.
-dwarf seems to move pretty quickly, which again implies very small overhead.
+To me this implies that node has a lot more startup overhead than either Python or dwarf.
+dwarf's time increases pretty quickly, which again implies very small overhead.
 
 ## Conclusion
 
@@ -233,7 +236,7 @@ And for a two month old implementation, I'm quite pleased with the results.
 Below is the full source of the benchmarks.
 For the Python and JavaScript programs, I used GitHub Copilot to write the code.
 I did this because I haven't written much of either language in several years.
-I was hoping the what came out of Copilot would more or less be idiomatic.
+I was hoping that what came out of Copilot would be more or less idiomatic.
 
 ### For Loops
 
@@ -315,7 +318,10 @@ fn fib(n: int) -> int {
     if n <= 1 {
         n
     } else {
-        fib(n - 1) + fib(n - 2)
+        let a = fib(n - 1);
+        let b = fib(n - 2);
+        
+        a + b
     }
 }
 
