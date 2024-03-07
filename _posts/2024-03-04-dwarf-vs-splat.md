@@ -9,8 +9,8 @@ tags: rust, dwarf
 >
 > *A task is defined as independent work that may be performed concurrently, (presumably on a thread), with other tasks.
 
-I've got a little programming language called [dwarf](https://www.github.com/uberFoo/dwarf) that shares syntax with, and is implemented in: [Rust](https://www.rust-lang.org).
-I have spent the last two months on a VM (and associated compiler) that supports dynamic plugins as well as async/.await syntax.
+I created a little programming language called [dwarf](https://www.github.com/uberFoo/dwarf) that shares syntax with, and is implemented in: [Rust](https://www.rust-lang.org).
+I have spent the last two months working on a VM (and associated compiler) that supports dynamic plugins as well as async/.await syntax.
 
 I got to wondering how dwarf compares, performance-wise, with other interpreted languages.
 Not being terribly creative I landed on two benchmarks: for loops, and fibonacci.
@@ -233,6 +233,7 @@ The VM likely as not has a few tweaks that can be made.
 And for a two month old implementation, I'm quite pleased with the results.
 
 If you liked this post, and want to see more like it, please let me know by starring the [dwarf](https://www.github.com/uberFoo/dwarf) repository on GitHub.
+If you really liked it, you can sponsor me on the same page. 😊
 
 ## Full Program Source
 
